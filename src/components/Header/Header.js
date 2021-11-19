@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -9,7 +9,19 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import { ShoppingBasket } from "@material-ui/icons";
 import Badge from "@material-ui/core/Badge";
-import { Button, Container, Grid, Paper } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  Container,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Grid,
+  Paper,
+  TextField,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -94,7 +106,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
       <div className={classes.root}>
@@ -129,6 +149,50 @@ export default function Header() {
                 inputProps={{ "aria-label": "search" }}
               />
             </div>
+            <Box mr={2} ml={2}>
+              <Button color="inherit" onClick={handleClickOpen}>
+                Log in
+              </Button>
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="form-dialog-title"
+              >
+                <DialogTitle id="form-dialog-title">Log in</DialogTitle>
+                <DialogContent>
+                  <DialogContentText>
+                    Log in to get more content
+                  </DialogContentText>
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    id="name"
+                    label="Email/name"
+                    type="email"
+                    fullWidth
+                  />
+                  <TextField
+                    margin="dense"
+                    id="pass"
+                    label="Password"
+                    type="password"
+                    fullWidth
+                  />
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose} color="inherit">
+                    Cancel
+                  </Button>
+                  <Button onClick={handleClose} color="inherit">
+                    Log in
+                  </Button>
+                </DialogActions>
+              </Dialog>
+            </Box>
+
+            <Button color="inherit" variant="outlined">
+              Sign Up
+            </Button>
           </Toolbar>
         </AppBar>
       </div>
