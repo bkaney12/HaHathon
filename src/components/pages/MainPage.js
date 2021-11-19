@@ -1,12 +1,17 @@
 import React from "react";
-import ListOfItems from "../Items/ListOfItems";
+import ItemsContext from "../../contexts/ItemsContext";
+import Content from "../Content/Content";
+// import ListOfItems from "../Items/ListOfItems";
 import MainLayout from "../layouts/MainLayout";
 
 const MainPage = () => {
   return (
-    <MainLayout>
-      <ListOfItems />
-    </MainLayout>
+    <ItemsContext>
+      <MainLayout>
+      {/* <ListOfItems /> */}
+      <Content />
+     </MainLayout>
+    </ItemsContext>
   );
 };
 
