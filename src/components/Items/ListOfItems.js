@@ -8,7 +8,7 @@ const ListOfItems = ({ products }) => {
 
   return (
     <>
-      <div style={{ alignItems: "center" }}>
+      <div style={{ alignItems: "center", paddingTop: "30px" }}>
         <Container maxWidth="md">
           <Typography
             variant="h2"

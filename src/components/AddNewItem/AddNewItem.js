@@ -102,7 +102,7 @@ const AddNewItem = () => {
                 />
                 <Button
                   variant="contained"
-                  color="secondary"
+                  color="primary"
                   className="btn-add"
                   onClick={AddNewItem}
                 >

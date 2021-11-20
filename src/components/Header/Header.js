@@ -87,23 +87,23 @@ const useStyles = makeStyles((theme) => ({
   featuresPost: {
     position: "relative",
     color: theme.palette.common.white,
-    marginBottom: theme.spacing(4),
+    // marginBottom: theme.spacing(),
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   },
   featuresPostContent: {
     position: "relative",
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
   },
-  overlay: {
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    backgroundOverlay: "rgba(0,0,0.3)",
-  },
+  // overlay: {
+  //   position: "absolute",
+  //   top: 0,
+  //   bottom: 0,
+  //   right: 0,
+  //   left: 0,
+  //   backgroundOverlay: "rgba(0,0,0.3)",
+  // },
 }));
 
 export default function Header() {

@@ -14,6 +14,10 @@ const useStyles = makeStyles({
   root: {
     width: "100%",
     paddingTop: "30px",
+    backgroundColor: "yellow",
+  },
+  main: {
+    backgroundColor: "yellow",
   },
 });
 
@@ -28,43 +32,45 @@ const Footer = () => {
       {/* <Typography variant="h5" align="center">
         I love winter
       </Typography> */}
-      <BottomNavigation
-        value={value}
-        onChange={handleChange}
-        className={classes.root}
-      >
-        <BottomNavigationAction
-          label="Recents"
-          value="recents"
-          icon={<RestoreIcon />}
-        />
-        <BottomNavigationAction
-          label="Favorites"
-          value="favorites"
-          icon={<FavoriteIcon />}
-        />
-        <BottomNavigationAction
-          label="Nearby"
-          value="nearby"
-          icon={<LocationOnIcon />}
-        />
-        <BottomNavigationAction
-          label="Folder"
-          value="folder"
-          icon={<FolderIcon />}
-        />
-      </BottomNavigation>
-      <br />
-      <Typography
-        align="center"
-        color="textSecondary"
-        component="p"
-        variant="subtitle1"
-        paddingTop="10px"
-      >
-        Winter Time <br /> HaHathon PROJECT <br />
-        November 2021 @ll rights reserved
-      </Typography>
+      <div className={classes.main}>
+        <BottomNavigation
+          value={value}
+          onChange={handleChange}
+          className={classes.root}
+        >
+          <BottomNavigationAction
+            label="Recents"
+            value="recents"
+            icon={<RestoreIcon />}
+          />
+          <BottomNavigationAction
+            label="Favorites"
+            value="favorites"
+            icon={<FavoriteIcon />}
+          />
+          <BottomNavigationAction
+            label="Nearby"
+            value="nearby"
+            icon={<LocationOnIcon />}
+          />
+          <BottomNavigationAction
+            label="Folder"
+            value="folder"
+            icon={<FolderIcon />}
+          />
+        </BottomNavigation>
+        <br />
+        <Typography
+          align="center"
+          color="textSecondary"
+          component="p"
+          variant="subtitle1"
+          paddingTop="10px"
+        >
+          Winter Time <br /> HaHathon PROJECT <br />
+          November 2021 @ll rights reserved
+        </Typography>
+      </div>
     </>
   );
 };
