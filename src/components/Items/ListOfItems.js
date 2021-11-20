@@ -1,46 +1,49 @@
 import { Button, Container, Grid, Typography } from "@material-ui/core";
 import React from "react";
-import ItemCard from "./ItemCard";
+// import ItemCard from "./ItemCard";
+import ItemCards from "./ItemCards";
 
-const ListOfItems = () => {
+const ListOfItems = ({ products }) => {
+  // console.log(products)
+
   return (
     <>
-      <div>
+      <div style={{ alignItems: "center" }}>
         <Container maxWidth="md">
           <Typography
             variant="h2"
             align="center"
             color="textPrimary"
             gutterBottom
+            fontFamily="Monospace"
           >
-            Ваш ждет сказочная зима
+            CHRISTMAS DECORATIONS
           </Typography>
           <Typography
             variant="h5"
             align="center"
             color="textSecondary"
             paragraph
+            fontFamily="Monospace"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            nisi iusto architecto mollitia, totam culpa officiis qui placeat
-            natus dignissimos reiciendis quae praesentium maxime, cum non
-            molestiae voluptatem, ducimus nobis!
+            Discover our magical Christmas décor collection of twinkling
+            Christmas wreaths and Christmas garlands, delightful Christmas room
+            decorations, and accessories that will bring out the excited child
+            in us all. Centre your festive scheme around a fabulous faux
+            Christmas tree, and finish with the understated elegance of glass
+            decorations or the whimsical fancy of gold and silver Christmas
+            decorations.
           </Typography>
         </Container>
-      </div>
-      <div>
-        <Grid container spacing={5} justify="center">
-          <Grid item>
-            <Button variant="contained" color="inherit">
-              Start now
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button variant="outlined">Learn more</Button>
-          </Grid>
+        <Grid container spacing={3}>
+          {products.map((product) => (
+            <Grid item xs={12} sm={9} md={3} key={product.id}>
+              <ItemCards product={product} />
+            </Grid>
+          ))}
         </Grid>
       </div>
-      <ItemCard />
+      {/* <ItemCard /> */}
     </>
   );
 };

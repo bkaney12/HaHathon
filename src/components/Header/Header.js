@@ -19,9 +19,11 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
+  Link,
   Paper,
   TextField,
 } from "@material-ui/core";
+import { useNavigate } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -107,6 +109,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -114,6 +117,9 @@ export default function Header() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleClickAdd = () => {
+    navigate("/add");
   };
   return (
     <>
@@ -126,7 +132,9 @@ export default function Header() {
               color="inherit"
               aria-label="open drawer"
             >
-              <MenuIcon />
+              <Button onClick={handleClickAdd} variant="outlined">
+                add
+              </Button>
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
               WINTER IS COMING
