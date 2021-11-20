@@ -23,9 +23,10 @@ const Content = () => {
       setPage(selected);
    }
 
-   useEffect(() => {
-      fetchProducts();
-   }, [])
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
    return (
       <Grid item md={12}>
@@ -46,5 +47,6 @@ const Content = () => {
       </Grid>
    )
 }
+
 
 export default Content;

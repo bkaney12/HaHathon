@@ -4,11 +4,13 @@ import ItemsContext from "./contexts/ItemsContext";
 
 function App() {
   return (
+
     <ItemsContext>
       <BrowserRouter>
         <AppRoutes />
       </BrowserRouter>
     </ItemsContext>
+
   );
 }
 
