@@ -23,6 +23,10 @@ import {
   Paper,
   TextField,
 } from "@material-ui/core";
+
+import MyLink from "../../shared/MyLink";
+
+
 import { useNavigate } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
@@ -85,6 +89,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   featuresPost: {
+    minHeight: "180px",
     position: "relative",
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
@@ -135,15 +140,21 @@ export default function Header() {
               <Button onClick={handleClickAdd} variant="outlined">
                 add
               </Button>
+
             </IconButton>
-            <Typography className={classes.title} variant="h6" noWrap>
-              WINTER IS COMING
-            </Typography>
-            <IconButton aria-label="show 2 new mails" color="inherit">
-              <Badge badgeContent={1} color="secondary">
-                <ShoppingBasket />
-              </Badge>
-            </IconButton>
+            <MyLink to="/">
+              <Typography className={classes.title} variant="h6" noWrap>
+                WINTER IS COMING
+              </Typography>
+            </MyLink>
+
+            <MyLink to="/cart">
+              <IconButton aria-label="show 2 new mails" color="inherit">
+                <Badge badgeContent={1} color="secondary">
+                  <ShoppingBasket />
+                </Badge>
+              </IconButton>
+            </MyLink>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
@@ -213,7 +224,7 @@ export default function Header() {
         <Container fixed>
           <div className={classes.overlay} />
           <Grid container>
-            <Grid item md={6}>
+            <Grid item md={9}>
               <div className={classes.featuresPostContent}>
                 <Typography
                   component="h1"
@@ -221,7 +232,7 @@ export default function Header() {
                   color="inherit"
                   gutterBottom
                 >
-                  Зима близко
+                  Зима близко 
                 </Typography>
                 <Typography component="h5" color="inherit" paragraph>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -239,4 +250,3 @@ export default function Header() {
     </>
   );
 }
-// https://source.unsplash.com/random
