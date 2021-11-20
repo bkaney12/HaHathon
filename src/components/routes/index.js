@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import CartPage from "../pages/CartPage";
-import ItemDetailsPage from "../pages/ItemDetailsPage";
 import MainPage from "../pages/MainPage";
+import ItemDetailsPage from "../pages/ItemDetailsPage";
+import CartPage from '../pages/CartPage'
 
 const AppRoutes = () => {
   return (

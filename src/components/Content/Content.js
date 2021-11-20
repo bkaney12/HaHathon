@@ -1,3 +1,4 @@
+
 import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
@@ -6,7 +7,7 @@ import ListOfItems from '../Items/ListOfItems';
 import './content.css';
 
 const Content = () => {
-   const { fetchProducts, loading, error, products } = useProducts();
+  const { fetchProducts, loading, error, products } = useProducts();
 
    const [page, setPage] = useState(0);
 
@@ -46,4 +47,4 @@ const Content = () => {
    )
 }
 
-export default Content
+export default Content;

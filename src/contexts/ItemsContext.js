@@ -1,8 +1,10 @@
+
 import React, { createContext, useContext, useReducer } from 'react';
 import { $api } from '../service/axios-config';
 import { GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCTS_SUCCESS, GET_PRODUCT_ERROR, GET_PRODUCT_SUCCESS, GET_PRODUCT_LOADING } from '../utils/constants';
 import { productsError, productsLoading, productsSuccess } from './actions/itemsActions';
 import { productError, productLoading, productSuccess } from './actions/itemDetailsActions';
+
 
 const productsContext = createContext();
 
@@ -16,19 +18,24 @@ const initialState = {
       loading: false,
       error: null,
       product: null,
-   }
+   },
 };
 
 const reducer = (state, action) => {
-   switch (action.type) {
-      case GET_PRODUCTS_LOADING:
-         return { ...state, loading: true };
+  switch (action.type) {
+    case GET_PRODUCTS_LOADING:
+      return { ...state, loading: true };
 
-      case GET_PRODUCTS_ERROR:
-         return { ...state, loading: false, products: [], error: action.payload };
+    case GET_PRODUCTS_ERROR:
+      return { ...state, loading: false, products: [], error: action.payload };
 
-      case GET_PRODUCTS_SUCCESS:
-         return { ...state, loading: false, error: null, products: action.payload };
+    case GET_PRODUCTS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        products: action.payload,
+      };
 
       case GET_PRODUCT_LOADING:
          return {
@@ -53,16 +60,17 @@ const reducer = (state, action) => {
    }
 }
 
-const ItemsContext = ({ children }) => {
-   const [state, dispatch] = useReducer(reducer, initialState);
 
-   const fetchProducts = async () => {
-      dispatch(productsLoading());
-      try {
-         const { data } = await $api();
-         setTimeout(() => {
-            dispatch(productsSuccess(data));
-         }, 300)
+const ItemsContext = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const fetchProducts = async () => {
+    dispatch(productsLoading());
+    try {
+      const { data } = await $api();
+      setTimeout(() => {
+        dispatch(productsSuccess(data));
+      }, 300);
 
          console.log(data)
       } catch (error) {
@@ -103,12 +111,11 @@ const ItemsContext = ({ children }) => {
       deleteProduct,
    }
 
-   return (
-      <productsContext.Provider value={values}>
-         {children}
-      </productsContext.Provider>
-   )
-}
+  return (
+    <productsContext.Provider value={values}>
+      {children}
+    </productsContext.Provider>
+  );
+};
 
-export default ItemsContext
-
+export default ItemsContext;
