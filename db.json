@@ -1,112 +1,123 @@
 {
-   "decors": [
-      {
-         "id": 1,
-         "title": "Three Velvet Bell Garlands",
-         "price": 1000,
-         "category": "tree decorations",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851-alt1.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851-detail2.png"
-      },
-      {
-         "id": 2,
-         "title": "Three Shatterproof Gingerbread Friends",
-         "price": 1000,
-         "category": "tree decorations",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029840.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029840-detail2.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030059-1640_snow_5.png"
-      },
-      {
-         "id": 3,
-         "title": "Twelve Light Up Baubles",
-         "price": 4000,
-         "category": "tree decorations",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png"
-      },
-      {
-         "id": 4,
-         "title": "Twenty Five Miniature Owl Baubles",
-         "price": 3000,
-         "category": "tree decorations",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png"
-      },
-      {
-         "id": 5,
-         "title": "Fabulously Full Fir Tree",
-         "price": 6000,
-         "category": "trees",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029935-neoclassical-op1-1_1.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029935-detail1_1.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029935-detail2_1.png"
-      },
-      {
-         "id": 6,
-         "title": "Super Bright Super Long String Lights",
-         "price": 5000,
-         "category": "lighting",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905-detail1.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905-detail1.png"
-      },
-      {
-         "id": 7,
-         "title": "Biodegradable Snow",
-         "price": 1000,
-         "category": "accessories",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029888.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029888-detail1.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029888-detail2.png"
-      },
-      {
-         "id": 8,
-         "title": "Snowy Village Musical Snowglobe",
-         "price": 4000,
-         "category": "accessories",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030268-alt1.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030268-detail1.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030268.png"
-      },
-      {
-         "id": 9,
-         "title": "Four Blush Glittered Brush Trees",
-         "price": 1500,
-         "category": "accessories",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029740.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029740-detail1.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029740-detail2.png"
-      },
-      {
-         "id": 10,
-         "title": "Fabulous Pre-Lit Pine Tree",
-         "price": 7000,
-         "category": "trees",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw20-1026655-alt-1_1.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw20-1026655-detail-1_1.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029740-detail2.png"
-      },
-      {
-         "id": 11,
-         "title": "Black Metal Cone Tree",
-         "price": 2000,
-         "category": "trees",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1026972.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1026972-detail2.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1026972-detail4.png"
-      },
-      {
-         "id": 12,
-         "title": "Frosted Pine Potted Tree",
-         "price": 2000,
-         "category": "trees",
-         "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-1029662.png",
-         "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-detail2.png",
-         "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-detail2.png"
-      }
-   ]
+  "decors": [
+    {
+      "id": 1,
+      "title": "Three Velvet Bell Garlands",
+      "price": 1000,
+      "category": "tree decorations",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851-alt1.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851-detail2.png",
+      "notes": "Adorn your tree, staircase or mantelpiece in truly traditional Christmas style with our set of Three Velvet Bell Garlands. Each with ten red bows and golden bells, if these don’t get you thinking about magical sleighs, we don’t know what will."
+    },
+    {
+      "id": 2,
+      "title": "Three Shatterproof Gingerbread Friends",
+      "price": 1000,
+      "category": "tree decorations",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029840.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029840-detail2.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030059-1640_snow_5.png",
+      "notes": "Treat yourself to all the joy and festive cheer afforded by a few gingerbread friends this winter, but without time and effort spent on baking them. Our set of three Shatterproof gingerbread figures look good enough to eat, but will never go stale and can be hung on your tree year after year."
+    },
+    {
+      "id": 3,
+      "title": "Twelve Light Up Baubles",
+      "price": 4000,
+      "category": "tree decorations",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
+      "notes": "A fabulous way to decorate your tree, our set of twelve light up baubles feature four different designs on a frosted white background - simply switch on to bring the designs to life. Each bauble is finished with a silver top and white organza loop for hanging."
+    },
+    {
+      "id": 4,
+      "title": "Twenty Five Miniature Owl Baubles",
+      "price": 3000,
+      "category": "tree decorations",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
+      "notes": "Fun and wonderfully quirky, our set of twenty-five petite owl baubles will bring a smile to your face. Each set includes ten in cream, ten in copper and five in deep chocolate brown, and every one has a sweet, gold glittered face and beady embossed black eyes. Each bauble has a gold top and hanging loop."
+    },
+    {
+      "id": 5,
+      "title": "Fabulously Full Fir Tree",
+      "price": 6000,
+      "category": "trees",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029935-neoclassical-op1-1_1.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029935-detail1_1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029935-detail2_1.png",
+      "notes": "With a classically festive shape and rich green foliage, our Fabulously Full Fir Tree will give your home all the charm and joy of a real tree, without the added stress of falling needles and the need to water. Split into three easy to assemble sections, our tree has hinged, posable branches that will simply fall into place, ready for you to bend them into whatever arrangement you prefer. Decorate, then stand back to appreciate an end result that is practically indistinguishable from the real thing."
+    },
+    {
+      "id": 6,
+      "title": "Super Bright Super Long String Lights",
+      "price": 5000,
+      "category": "lighting",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905-detail1.png"
+    },
+    {
+      "id": 7,
+      "title": "Biodegradable Snow",
+      "price": 1000,
+      "category": "accessories",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029888.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029888-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029888-detail2.png",
+      "notes": "Dress your windowsills, create tiny festive scenes and even give your garden a little sprinkling with our Biodegradable Snow. Made from corn starch, this snow is environmentally friendly - simple use as you wish, then add to your food waste or compost bin."
+    },
+    {
+      "id": 8,
+      "title": "Snowy Village Musical Snowglobe",
+      "price": 4000,
+      "category": "accessories",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030268-alt1.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030268-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030268.png",
+      "notes": "Ideal to give to a loved one as a traditional Christmas gift or to display on a mantelpiece for a touch of classic festive fun, our Snowy Village Musical Snowglobe is adorned inside and out with snow-topped houses, frosted trees and tiny figures making merry. Wind up to hear a twinkling rendition of 'We Wish You a Merry Christmas' or simply give it a little shake and enjoy the gentle snow fall."
+    },
+    {
+      "id": 9,
+      "title": "Four Blush Glittered Brush Trees",
+      "price": 1500,
+      "category": "accessories",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029740.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029740-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029740-detail2.png",
+      "notrs": "It wouldn’t feel like the festive season without glitter, and lots of it. Position our sweet set of Four Blush Glittered Brush Trees on a sideboard or mantelpiece and enjoy the cheer that small changes to your interior space can evoke."
+    },
+    {
+      "id": 10,
+      "title": "Fabulous Pre-Lit Pine Tree",
+      "price": 7000,
+      "category": "trees",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw20-1026655-alt-1_1.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw20-1026655-detail-1_1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029740-detail2.png",
+      "notes": "Positioned inside or out, our impressive pre-lit trees will create quite the festive-fabulous impression year after year. Select from a 7ft, 8 ft or 10ft tree, each has a statuesque silhouette that is pre-lit at perfectly placed intervals with warm white lights on a discreet green wire, the absolute centrepiece to your Christmas home - positioned outside as your return home and guest arrive, or standing majestically in your hall or living room. Specifically designed for optional use outside, our trees are effortless to assemble, the three sections of the each Indoor Outdoor Fabulous Pre-Lit Pine Tree are already shaped and posed for you, so all you need to do is join together and connect; the hinged branches simply fall perfectly into place."
+    },
+    {
+      "id": 11,
+      "title": "Black Metal Cone Tree",
+      "price": 2000,
+      "category": "trees",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1026972.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1026972-detail2.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1026972-detail4.png",
+      "notes": "An ideal choice for those who are a little short on space, or for those who would like a toned-down, minimalist Christmas, our Black Metal Cone Tree has a simple, elegant silhouette and can be dressed up as much or as little as suits your holiday mood. Try winding it around with fairy lights, or solely hanging it with a selection of coordinating baubles"
+    },
+    {
+      "id": 12,
+      "title": "Frosted Pine Potted Tree",
+      "price": 2000,
+      "category": "trees",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-1029662.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-detail2.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-detail2.png",
+      "notes": "Standing at a compact two and a half feet tall with a full, bushy appearance and lovely snowy finish, our sweet little Frosted Pine Potted Tree is perfect for placing in a hallway, child’s bedroom or as the main event if you’re short on space or planning a small Christmas. Extremely realistic yet wonderfully whimsical, dress our tree with baubles, garlands, lights, and even a decorative outer pot to complete the look."
+    }
+  ]
 }

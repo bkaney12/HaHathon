@@ -6,12 +6,9 @@ import MainLayout from "../layouts/MainLayout";
 
 const MainPage = () => {
   return (
-    <ItemsContext>
-      <MainLayout>
-      {/* <ListOfItems /> */}
+    <MainLayout>
       <Content />
-     </MainLayout>
-    </ItemsContext>
+    </MainLayout>
   );
 };
 
