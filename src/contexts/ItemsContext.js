@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useReducer } from "react";
 import { $api } from "../service/axios-config";
 import {
@@ -9,11 +10,13 @@ import {
   GET_PRODUCT_LOADING,
   GET_CART,
   ADD_TO_CART,
+   SET_SEARCH_RESULTS 
 } from "../utils/constants";
 import {
   productsError,
   productsLoading,
   productsSuccess,
+  setSearchResults
 } from "./actions/itemsActions";
 import {
   productError,
@@ -24,11 +27,13 @@ import { useNavigate, useLocation } from "react-router";
 import { calcSubPrice, calcTotalPrice } from "../utils/calculations";
 import { checkItemInCart } from "../utils/check-cart";
 
+
 const productsContext = createContext();
 
 export const useProducts = () => useContext(productsContext);
 
 const initialState = {
+
   loading: false,
   error: null,
   products: [],
@@ -36,11 +41,13 @@ const initialState = {
     loading: false,
     error: null,
     product: null,
-  },
+  },  
+    searchResults: [],
   cartData: JSON.parse(localStorage.getItem("cart"))
     ? JSON.parse(localStorage.getItem("cart")).decors.length
     : 0,
   cart: {},
+
 };
 
 const reducer = (state, action) => {
@@ -76,6 +83,7 @@ const reducer = (state, action) => {
         },
       };
 
+
     case GET_PRODUCT_ERROR:
       return {
         ...state,
@@ -86,6 +94,13 @@ const reducer = (state, action) => {
           product: null,
         },
       };
+    case SET_SEARCH_RESULTS: 
+         return {
+            ...state,
+            searchResults: action.payload,
+         };
+
+  
 
     case ADD_TO_CART: {
       return {
@@ -102,6 +117,7 @@ const reducer = (state, action) => {
     default:
       return state;
   }
+
 };
 
 const ItemsContext = ({ children }) => {
@@ -116,6 +132,7 @@ const ItemsContext = ({ children }) => {
       const { data } = await $api(`${window.location.search}`);
       setTimeout(() => {
         dispatch(productsSuccess(data));
+
       }, 200);
 
       // console.log(data);
@@ -174,7 +191,18 @@ const ItemsContext = ({ children }) => {
     const url = `${location.pathname}?${search.toString()}`;
     navigate(url);
   };
-
+   const fetchSearchProducts = async (value) => {
+      try {
+         if (!value) {
+            dispatch(setSearchResults([]));
+            return;
+         } 
+            const { data } = await $api(`?q=${value}`)
+            dispatch(setSearchResults(data))
+      } catch (error) {
+         console.log(error.message)
+      }
+   }
   const addToCart = (product) => {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
@@ -242,6 +270,10 @@ const ItemsContext = ({ children }) => {
     addToCart,
     getCart,
     deleteProductFromCart,
+     searchResults: state.searchResults,
+     fetchSearchProducts,
+    
+    
   };
 
   return (
@@ -249,6 +281,7 @@ const ItemsContext = ({ children }) => {
       {children}
     </productsContext.Provider>
   );
+
 };
 
 export default ItemsContext;

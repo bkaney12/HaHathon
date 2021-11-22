@@ -2,9 +2,9 @@
    display: flex;
    list-style-type: none;
    width: 80%;
-   justify-content: center;
+   /* justify-content: flex-end; */
    height: 50px;
-   align-items: center;
+   align-items: flex-end;
 }
 
 .pagination a {
@@ -16,10 +16,10 @@
 }
 
 .pagination a:hover {
-   background-color: #ecb7b7;
+   background-color: #6b7b7a;
 }
 
 .activeBtn a {
-   background-color: rgb(223, 37, 68);
+   background-color: rgb(92, 118, 117);
    color: #fff;
 }

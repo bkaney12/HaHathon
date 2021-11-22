@@ -9,6 +9,19 @@
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851-detail2.png",
       "notes": "Adorn your tree, staircase or mantelpiece in truly traditional Christmas style with our set of Three Velvet Bell Garlands. Each with ten red bows and golden bells, if these don’t get you thinking about magical sleighs, we don’t know what will."
+
+    },
+    {
+      "id": 2,
+      "title": "Three Shatterproof Gingerbread Friends",
+      "price": 1000,
+      "category": "tree decorations",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029840.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029840-detail2.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030059-1640_snow_5.png",
+      "notes": "Treat yourself to all the joy and festive cheer afforded by a few gingerbread friends this winter, but without time and effort spent on baking them. Our set of three Shatterproof gingerbread figures look good enough to eat, but will never go stale and can be hung on your tree year after year."
+
+
     },
     {
       "id": 3,
@@ -47,7 +60,8 @@
       "category": "lighting",
       "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905.png",
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905-detail1.png",
-      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905-detail1.png"
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905-detail1.png",
+      "notes": "Set your imagination free and transform your home into a magical wonderland populated by hundreds of tiny fairies with our Super Bright Super Long String Lights. Set the 960 warm white LED bulbs to a steady glow or twinkle effect and let the festivities begin."
     },
     {
       "id": 7,
@@ -108,6 +122,128 @@
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-detail2.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-detail2.png",
       "notes": "Standing at a compact two and a half feet tall with a full, bushy appearance and lovely snowy finish, our sweet little Frosted Pine Potted Tree is perfect for placing in a hallway, child’s bedroom or as the main event if you’re short on space or planning a small Christmas. Extremely realistic yet wonderfully whimsical, dress our tree with baubles, garlands, lights, and even a decorative outer pot to complete the look."
+
+    },
+    {
+      "title": "Light Up Crown Tree Topper",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030112-on.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030112-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030112-off.png",
+      "price": "1000",
+      "notes": "Add a regal touch to your festive decorating this year and really let Christmas rule your home with our Light Up Crown Tree Topper. Simply place over the upper-most branches of your tree, straight or at a jaunty angle, for a grand look with a little bit of playful charm.",
+      "category": "tree decorations",
+      "id": 13
+    },
+    {
+      "title": "Three Gilded Shells - Slim",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030690.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030690-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030690-detail2.png",
+      "price": "3000",
+      "notes": "The ideal festive decorations for those who love the ocean and all its wonderful inhabitants, our set of Three Gilded Shells will add both nautical charm and a glamorous yet whimsical touch to your scheme this year.",
+      "category": "tree decorations",
+      "id": 14
+    },
+    {
+      "title": "Light Up Moon Bauble",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030243.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030243-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030243-detail1.png",
+      "price": "1600",
+      "notes": "Create a magical atmosphere in your home this Christmas with our ethereal Light Up Moon Bauble. Battery powered for easy transportation, hang anywhere from your tree to your mantelpiece and enjoy its gentle warm white glow.",
+      "category": "lighting",
+      "id": 15
+    },
+    {
+      "title": "Nutcracker Tree Train",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw19-1020329.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw19-1020329-detail3.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw19-1020329-detail1.png",
+      "price": "4000",
+      "notes": "A charming finishing touch to your Christmas tree, our happy holiday steam train decoration runs around a little red track at the base of your tree, and features two nutcracker characters working the engine as the train shunters by.\n\nPerfect for evoking memories of Christmas gone by, this moving train features a realistic train track sound accompanied by a jolly jingle bells tune.",
+      "category": "accessories",
+      "id": 16
+    },
+    {
+      "title": "Twenty Four Hanging Metal Stars",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1026979.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1026979-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1026979.png",
+      "price": "3500",
+      "notes": "Opt for a decorative scheme with a soft spot for cool, industrial design this winter and display our Twenty Four Hanging Metal Stars on your tree and around your home for a bold festive look.",
+      "category": "tree decorations",
+      "id": 17
+    },
+    {
+      "title": "Six Dried Grasses Glass Baubles",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029794-1_1.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029794-detail1-1_1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029928-scandilakehouse-hero_6.png",
+      "price": "2400",
+      "notes": "Embrace fresh, clean design this winter and create a decorative scheme that is undeniably festive, but simultaneously promotes tranquility and mindfulness through the use of natural materials and neutral colours.\n\nOur set of Six Dried Grasses Glass Baubles will help you do just this and are beautiful additions to any tree, mantelpiece or staircase.",
+      "category": "tree decorations",
+      "id": 18
+    },
+    {
+      "title": "Pre-Lit Potted Tree",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw20-1026570.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw20-1026570-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw20-1026570-detail2.png",
+      "price": "8000",
+      "notes": "To add a festive touch anywhere in the home - our battery-powered Mini Pre-Lit Pine Tree, although perfectly petite, is very nearly indistinguishable from the real thing by its slender branches and delicate little integrated lights.\n\nThe little tree stands on a round wooden stand that hides the battery compartment. Try creating a magical display with more than one teamed together.",
+      "category": "trees",
+      "id": 19
+    },
+    {
+      "title": "Four Paper Trees",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029801.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029801-detail2.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029801-detail1.png",
+      "price": "2000",
+      "notes": "Embrace fresh, clean design this winter and create a decorative scheme that is undeniably festive, but simultaneously promotes simplicity and mindfulness through the use of limited materials and colours.\n\nOur set of Four Paper Trees will help you do just this and are beautiful additions to any tree, mantelpiece or staircase.",
+      "category": "tree decorations",
+      "id": 20
+    },
+    {
+      "title": "Four Glittered Bows - Red",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029567.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029567-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029567-detail2.png",
+      "price": "1800",
+      "notes": "With all the delicate charm and movement of fabric bows, but crafted from solid material that will not lose its bounce, our set of Four Glittered Bows will keep your home looking festive throughout the whole season.",
+      "category": "tree decorations",
+      "id": 21
+    },
+    {
+      "title": "Fabulous Front Door Light Up Tree Set",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029923.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029923-detail2.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029923-detail3.png",
+      "price": "8000",
+      "notes": "Transform the entrance to your home into a gateway through to Santas Grotto with our four piece Fabulous Front Door Light Up Tree Set. Weather proof and battery powered for easy transportation and installation, this set will brighten the day of anyone who has the good fortune to walk through a doorway adorned in it.",
+      "category": "lighting",
+      "id": 22
+    },
+    {
+      "title": "Outdoor Twinkle Lights",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw15-x-twinkled.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw20-1026587.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw15-x-twinkled.png",
+      "price": "2300",
+      "notes": "Transform your outdoor space into a magical winter wonderland with our simple and striking twinkle lights. Display round your porch, in a garden tree or around your bannister.\n\nSuitable for both indoor and outdoor use, our set of 750 warm white LED lights are scattered along a green cable and include an eight function controller that lets the lights twinkle, fade, flash or stay static.",
+      "category": "lighting",
+      "id": 23
+    },
+    {
+      "title": "Four Blue Reactive Glaze Glass Baubles",
+      "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029592.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029592-detail1.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029592-detail3.png",
+      "price": "3000",
+      "notes": "Finished with an effect reminiscent of coral or creatures found deep in the ocean, our set of Four Blue Reactive Glaze Glass Baubles are the ideal festive decorations for those who love the sea and all its wonderful inhabitants.",
+      "category": "tree decorations",
+      "id": 24
+
     }
   ]
 }
