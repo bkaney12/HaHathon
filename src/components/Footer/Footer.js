@@ -14,10 +14,10 @@ const useStyles = makeStyles({
   root: {
     width: "100%",
     paddingTop: "30px",
-    backgroundColor: "yellow",
+    backgroundColor: "brown",
   },
   main: {
-    backgroundColor: "yellow",
+    backgroundColor: "brown",
   },
 });
 

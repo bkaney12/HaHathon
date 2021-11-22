@@ -9,6 +9,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import { ShoppingBasket } from "@material-ui/icons";
 import Badge from "@material-ui/core/Badge";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Fade from "@material-ui/core/Fade";
 import {
   Box,
   Button,
@@ -23,7 +26,11 @@ import {
   Paper,
   TextField,
 } from "@material-ui/core";
+
+import MyLink from "../../shared/MyLink";
+
 import { useNavigate } from "react-router";
+import { useProducts } from "../../contexts/ItemsContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
 
   title: {
@@ -85,31 +92,44 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   featuresPost: {
+    minHeight: "180px",
     position: "relative",
     color: theme.palette.common.white,
-    // marginBottom: theme.spacing(),
+    // marginBottom: theme.spacing(1),
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   },
   featuresPostContent: {
     position: "relative",
-    padding: theme.spacing(1),
+    padding: theme.spacing(3),
   },
-  // overlay: {
-  //   position: "absolute",
-  //   top: 0,
-  //   bottom: 0,
-  //   right: 0,
-  //   left: 0,
-  //   backgroundOverlay: "rgba(0,0,0.3)",
-  // },
+  overlay: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    backgroundOverlay: "rgba(0,0,0.3)",
+  },
 }));
 
 export default function Header() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open1 = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose1 = () => {
+    setAnchorEl(null);
+  };
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+
+  const { cartData } = useProducts();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -132,18 +152,23 @@ export default function Header() {
               color="inherit"
               aria-label="open drawer"
             >
-              <Button onClick={handleClickAdd} variant="outlined">
+              {/* <Button onClick={handleClickAdd} variant="outlined">
                 add
-              </Button>
+              </Button> */}
             </IconButton>
-            <Typography className={classes.title} variant="h6" noWrap>
-              WINTER IS COMING
-            </Typography>
-            <IconButton aria-label="show 2 new mails" color="inherit">
-              <Badge badgeContent={1} color="secondary">
-                <ShoppingBasket />
-              </Badge>
-            </IconButton>
+            <MyLink to="/">
+              <Typography className={classes.title} variant="h6" noWrap>
+                WINTER IS COMING
+              </Typography>
+            </MyLink>
+
+            <MyLink to="/cart">
+              <IconButton aria-label="show 2 new mails" color="inherit">
+                <Badge badgeContent={cartData} color="secondary">
+                  <ShoppingBasket />
+                </Badge>
+              </IconButton>
+            </MyLink>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
@@ -158,12 +183,34 @@ export default function Header() {
               />
             </div>
             <Box mr={2} ml={2}>
-              <Button color="inherit" onClick={handleClickOpen}>
-                Log in
+              <Button
+                aria-controls="fade-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
+                Sign up
               </Button>
+              <Menu
+                id="fade-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={open1}
+                onClose={handleClose1}
+                TransitionComponent={Fade}
+              >
+                <MenuItem onClick={handleClose1}>Sign up</MenuItem>
+                <MenuItem
+                  color="inherit"
+                  onClick={(handleClose1, handleClickOpen)}
+                >
+                  Log in
+                </MenuItem>
+                <MenuItem onClick={handleClose1}>Logout</MenuItem>
+              </Menu>
+
               <Dialog
                 open={open}
-                onClose={handleClose}
+                onClose={handleClose1}
                 aria-labelledby="form-dialog-title"
               >
                 <DialogTitle id="form-dialog-title">Log in</DialogTitle>
@@ -198,22 +245,22 @@ export default function Header() {
               </Dialog>
             </Box>
 
-            <Button color="inherit" variant="outlined">
+            {/* <Button color="inherit" variant="outlined">
               Sign Up
-            </Button>
+            </Button> */}
           </Toolbar>
         </AppBar>
       </div>
       <Paper
         className={classes.featuresPost}
         style={{
-          backgroundImage: `url(https://images.theconversation.com/files/306448/original/file-20191211-95111-fbz9rf.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop)`,
+          backgroundImage: `url(https://image.shutterstock.com/image-photo/decorated-christmas-tree-on-blurred-260nw-1201088539.jpg)`,
         }}
       >
         <Container fixed>
           <div className={classes.overlay} />
           <Grid container>
-            <Grid item md={6}>
+            <Grid item md={9}>
               <div className={classes.featuresPostContent}>
                 <Typography
                   component="h1"
@@ -228,8 +275,13 @@ export default function Header() {
                   Magnam, perferendis amet in delectus, architecto dignissimos
                   quos tempora eos laborum sint consectetur quibusdam adipisci!
                 </Typography>
-                <Button variant="contained" color="secondary">
-                  Learn more
+
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={handleClickAdd}
+                >
+                  add an item
                 </Button>
               </div>
             </Grid>
@@ -239,4 +291,3 @@ export default function Header() {
     </>
   );
 }
-// https://source.unsplash.com/random
