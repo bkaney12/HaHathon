@@ -1,9 +1,9 @@
 import { Button, Card, CardActions, CardContent, CardHeader, Grid, IconButton, makeStyles, Typography } from '@material-ui/core';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useProducts } from '../../contexts/ItemsContext';
 import { blueGrey } from '@material-ui/core/colors';
-import { ButtonBack, ButtonNext, CarouselProvider, ImageWithZoom, Slide, Slider } from 'pure-react-carousel';
+// import { ButtonBack, ButtonNext, CarouselProvider, ImageWithZoom, Slide, Slider } from 'pure-react-carousel';
 import CreateIcon from '@material-ui/icons/Create';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
@@ -41,7 +41,7 @@ const ItemsDetails = () => {
 
    useEffect(() => {
       fetchOneProduct(id)
-   }, []);
+   }, [id]);
 
    const handleReverse =() => {
       deleteProduct(id);
@@ -52,10 +52,10 @@ const ItemsDetails = () => {
       <Grid container>
          { productDetails ? (
             <Grid container className={classes.data_container}>
-               <Grid item md={6}>
+               <Grid item md={6} sm={10}>
                   <img src={productDetails.image} className={classes.img}/>
                </Grid>
-            <Grid item md={4}>
+            <Grid item md={4} sm={12}>
                <Card>
                   <CardContent>
                      <h1>
@@ -72,13 +72,13 @@ const ItemsDetails = () => {
                         {productDetails.notes}
                      </p>
                   <IconButton>
-                     <Button style={{color: blueGrey[500], marginBottom: 0}} variant="contained" >
+                     <Button style={{backgroundColor: blueGrey[500], marginBottom: 0}} variant="contained" >
                         Add to Basket
                      </Button>
                   </IconButton>
                   </CardContent>
                   <CardActions className={classes.actions}>
-                     <IconButton aria-label="add to favorites">
+                     <IconButton aria-label="add to favorites" >
                         <FavoriteIcon />
                      </IconButton>
                      <IconButton>

@@ -12,6 +12,7 @@ import Badge from "@material-ui/core/Badge";
 import {
   Box,
   Button,
+  ClickAwayListener,
   Container,
   Dialog,
   DialogActions,
@@ -28,6 +29,8 @@ import MyLink from "../../shared/MyLink";
 
 
 import { useNavigate } from "react-router";
+import { useProducts } from "../../contexts/ItemsContext";
+import Search from "../Search/Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -109,11 +112,18 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     backgroundOverlay: "rgba(0,0,0.3)",
   },
+  searchBox: {
+    position: 'absolute',
+    top: '35px',
+    zIndex: 999,
+  }
 }));
 
 export default function Header() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const [searchActive, setSearchActive] = useState(false);
+  const { fetchSearchProducts } = useProducts();
   const navigate = useNavigate();
 
   const handleClickOpen = () => {
@@ -126,6 +136,11 @@ export default function Header() {
   const handleClickAdd = () => {
     navigate("/add");
   };
+
+  const handleSearch = (e) => {
+    fetchSearchProducts(e.target.value);
+  }
+
   return (
     <>
       <div className={classes.root}>
@@ -155,19 +170,28 @@ export default function Header() {
                 </Badge>
               </IconButton>
             </MyLink>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
+            <ClickAwayListener onClickAway={() => setSearchActive(false)}>
+              <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <InputBase
+                  onFocus={() => setSearchActive(true)}
+                  placeholder="Search…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  onChange={handleSearch}
+                  inputProps={{ "aria-label": "search" }}
+                />
+                {searchActive && (
+                  <div className={classes.searchBox}>
+                    <Search />
+                  </div>
+                )}
               </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ "aria-label": "search" }}
-              />
-            </div>
+            </ClickAwayListener>
             <Box mr={2} ml={2}>
               <Button color="inherit" onClick={handleClickOpen}>
                 Log in

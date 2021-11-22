@@ -3,12 +3,22 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Container, Card, CardMedia, CardContent, Typography, CardActions, CardActionArea, Button, Grid, IconButton } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MyLink from '../../shared/MyLink';
+import { blueGrey } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles({
    media: {
       height: 140,
       paddingTop: "56.25%",
+   },
+   card: {
+      height: '100%'
+   },
+   cardGrid: {
+      height: '100%'
+   },
+   cardContent: {
+      minHeight: '140px'
    }
 })
 
@@ -17,7 +27,7 @@ const ItemCards = ({ product }) => {
 
 
    return (
-      <Container className={classes.cardGrid} maxWidth="md">
+      <Container className={classes.cardGrid}>
          <Card className={classes.card}>
             <MyLink exact to={`/product/${product.id}`}>
                <CardActionArea>
@@ -41,9 +51,9 @@ const ItemCards = ({ product }) => {
                   </CardContent>
                </CardActionArea>
             </MyLink>
-            <CardActions>
+            <CardActions className={classes.actionArea}>
                <MyLink to={`/product/${product.id}`}>
-                  <Button color="secondary" variant="contained">
+                  <Button style={{backgroundColor: blueGrey[600]}} variant="contained">
                      View
                   </Button>
                </MyLink>

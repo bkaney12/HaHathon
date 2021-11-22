@@ -1,11 +1,8 @@
-
-
 import React, { createContext, useContext, useReducer } from 'react';
 import { $api } from '../service/axios-config';
-import { GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCTS_SUCCESS, GET_PRODUCT_ERROR, GET_PRODUCT_SUCCESS, GET_PRODUCT_LOADING } from '../utils/constants';
-import { productsError, productsLoading, productsSuccess } from './actions/itemsActions';
+import { GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCTS_SUCCESS, GET_PRODUCT_ERROR, GET_PRODUCT_SUCCESS, GET_PRODUCT_LOADING, SET_SEARCH_RESULTS } from '../utils/constants';
+import { productsError, productsLoading, productsSuccess, setSearchResults } from './actions/itemsActions';
 import { productError, productLoading, productSuccess } from './actions/itemDetailsActions';
-
 
 
 
@@ -23,6 +20,7 @@ const initialState = {
       error: null,
       product: null,
    },
+   searchResults: [],
 
 };
 
@@ -61,10 +59,15 @@ const reducer = (state, action) => {
             productDetails: { ...state.productDetails, loading: false, error: action.payload, product: null },
          };
 
+      case SET_SEARCH_RESULTS: 
+         return {
+            ...state,
+            searchResults: action.payload,
+         }
 
-    default:
-      return state;
-  }
+      default:
+         return state;
+   }
 };
 
 
@@ -106,13 +109,26 @@ const ItemsContext = ({ children }) => {
       }
    }
 
-const addItem = async (newItem) => {
-    try {
-      await $api.post("/", newItem);
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
+   const addItem = async (newItem) => {
+      try {
+         await $api.post("/", newItem);
+      } catch (e) {
+         console.log(e.message);
+      }
+   };
+
+   const fetchSearchProducts = async (value) => {
+      try {
+         if (!value) {
+            dispatch(setSearchResults([]));
+            return;
+         } 
+            const { data } = await $api(`?q=${value}`)
+            dispatch(setSearchResults(data))
+      } catch (error) {
+         console.log(error.message)
+      }
+   }
 
    const values = {
       products: state.products,
@@ -121,21 +137,19 @@ const addItem = async (newItem) => {
       productDetails: state.productDetails.product,
       productDetailsLoading: state.productDetails.loading,
       productDetailsError: state.productDetails.error,
+      searchResults: state.searchResults,
       fetchProducts,
       fetchOneProduct,
+      fetchSearchProducts,
       deleteProduct,
-     addItem,
+      addItem,
    }
 
-
-
-  
-
-  return (
-    <productsContext.Provider value={values}>
-      {children}
-    </productsContext.Provider>
-  );
+   return (
+      <productsContext.Provider value={values}>
+         {children}
+      </productsContext.Provider>
+   );
 };
 
 export default ItemsContext;
