@@ -9,6 +9,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import { ShoppingBasket } from "@material-ui/icons";
 import Badge from "@material-ui/core/Badge";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Fade from "@material-ui/core/Fade";
 import {
   Box,
   Button,
@@ -27,10 +30,11 @@ import {
 
 import MyLink from "../../shared/MyLink";
 
-
 import { useNavigate } from "react-router";
 import { useProducts } from "../../contexts/ItemsContext";
+
 import Search from "../Search/Search";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
 
   title: {
@@ -95,14 +99,14 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "180px",
     position: "relative",
     color: theme.palette.common.white,
-    marginBottom: theme.spacing(4),
+    // marginBottom: theme.spacing(1),
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   },
   featuresPostContent: {
     position: "relative",
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
   },
   overlay: {
     position: "absolute",
@@ -120,11 +124,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open1 = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose1 = () => {
+    setAnchorEl(null);
+  };
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
   const { fetchSearchProducts } = useProducts();
   const navigate = useNavigate();
+
+  const { cartData } = useProducts();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -152,10 +168,9 @@ export default function Header() {
               color="inherit"
               aria-label="open drawer"
             >
-              <Button onClick={handleClickAdd} variant="outlined">
+              {/* <Button onClick={handleClickAdd} variant="outlined">
                 add
-              </Button>
-
+              </Button> */}
             </IconButton>
             <MyLink to="/">
               <Typography className={classes.title} variant="h6" noWrap>
@@ -165,7 +180,7 @@ export default function Header() {
 
             <MyLink to="/cart">
               <IconButton aria-label="show 2 new mails" color="inherit">
-                <Badge badgeContent={1} color="secondary">
+                <Badge badgeContent={cartData} color="secondary">
                   <ShoppingBasket />
                 </Badge>
               </IconButton>
@@ -193,12 +208,34 @@ export default function Header() {
               </div>
             </ClickAwayListener>
             <Box mr={2} ml={2}>
-              <Button color="inherit" onClick={handleClickOpen}>
-                Log in
+              <Button
+                aria-controls="fade-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
+                Sign up
               </Button>
+              <Menu
+                id="fade-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={open1}
+                onClose={handleClose1}
+                TransitionComponent={Fade}
+              >
+                <MenuItem onClick={handleClose1}>Sign up</MenuItem>
+                <MenuItem
+                  color="inherit"
+                  onClick={(handleClose1, handleClickOpen)}
+                >
+                  Log in
+                </MenuItem>
+                <MenuItem onClick={handleClose1}>Logout</MenuItem>
+              </Menu>
+
               <Dialog
                 open={open}
-                onClose={handleClose}
+                onClose={handleClose1}
                 aria-labelledby="form-dialog-title"
               >
                 <DialogTitle id="form-dialog-title">Log in</DialogTitle>
@@ -233,16 +270,16 @@ export default function Header() {
               </Dialog>
             </Box>
 
-            <Button color="inherit" variant="outlined">
+            {/* <Button color="inherit" variant="outlined">
               Sign Up
-            </Button>
+            </Button> */}
           </Toolbar>
         </AppBar>
       </div>
       <Paper
         className={classes.featuresPost}
         style={{
-          backgroundImage: `url(https://images.theconversation.com/files/306448/original/file-20191211-95111-fbz9rf.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop)`,
+          backgroundImage: `url(https://image.shutterstock.com/image-photo/decorated-christmas-tree-on-blurred-260nw-1201088539.jpg)`,
         }}
       >
         <Container fixed>
@@ -256,15 +293,20 @@ export default function Header() {
                   color="inherit"
                   gutterBottom
                 >
-                  Зима близко 
+                  Зима близко
                 </Typography>
                 <Typography component="h5" color="inherit" paragraph>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Magnam, perferendis amet in delectus, architecto dignissimos
                   quos tempora eos laborum sint consectetur quibusdam adipisci!
                 </Typography>
-                <Button variant="contained" color="secondary">
-                  Learn more
+
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={handleClickAdd}
+                >
+                  add an item
                 </Button>
               </div>
             </Grid>

@@ -16,6 +16,7 @@ const AddNewItem = () => {
     price: "",
     notes: "",
     category: "",
+    notes: "",
   });
   const handleChange = (e) => {
     const values = {
@@ -30,6 +31,7 @@ const AddNewItem = () => {
       !form.title ||
       !form.image ||
       !form.price ||
+
       !form.notes ||
       !form.category ||
       !form.image2 ||
@@ -58,12 +60,19 @@ const AddNewItem = () => {
                   onChange={handleChange}
                   value={form.title}
                 />
-                <textarea
+                {/* <textarea
                   type="text"
                   placeholder="Notes"
                   name="notes"
                   onChange={handleChange}
                   value={form.description}
+                /> */}
+                <textarea
+                  type="text"
+                  placeholder="Notes"
+                  name="notes"
+                  onChange={handleChange}
+                  value={form.notes}
                 />
                 <input
                   type="text"
@@ -102,7 +111,7 @@ const AddNewItem = () => {
                 />
                 <Button
                   variant="contained"
-                  color="secondary"
+                  color="primary"
                   className="btn-add"
                   onClick={AddNewItem}
                 >

@@ -4,11 +4,12 @@
       "id": 1,
       "title": "Three Velvet Bell Garlands",
       "price": 1000,
-      "category": "tree decorations",
+      "category": "tree decorations edited",
       "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851-alt1.png",
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029851-detail2.png",
       "notes": "Adorn your tree, staircase or mantelpiece in truly traditional Christmas style with our set of Three Velvet Bell Garlands. Each with ten red bows and golden bells, if these don’t get you thinking about magical sleighs, we don’t know what will."
+
     },
     {
       "id": 2,
@@ -19,12 +20,14 @@
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029840-detail2.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030059-1640_snow_5.png",
       "notes": "Treat yourself to all the joy and festive cheer afforded by a few gingerbread friends this winter, but without time and effort spent on baking them. Our set of three Shatterproof gingerbread figures look good enough to eat, but will never go stale and can be hung on your tree year after year."
+
+
     },
     {
       "id": 3,
       "title": "Twelve Light Up Baubles",
       "price": 4000,
-      "category": "tree decorations",
+      "category": "tree decorations ",
       "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
@@ -33,8 +36,8 @@
     {
       "id": 4,
       "title": "Twenty Five Miniature Owl Baubles",
-      "price": 3000,
-      "category": "tree decorations",
+      "price": "3000 ",
+      "category": "tree decorations edited1",
       "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
@@ -119,6 +122,7 @@
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-detail2.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-detail2.png",
       "notes": "Standing at a compact two and a half feet tall with a full, bushy appearance and lovely snowy finish, our sweet little Frosted Pine Potted Tree is perfect for placing in a hallway, child’s bedroom or as the main event if you’re short on space or planning a small Christmas. Extremely realistic yet wonderfully whimsical, dress our tree with baubles, garlands, lights, and even a decorative outer pot to complete the look."
+
     },
     {
       "title": "Light Up Crown Tree Topper",
@@ -239,6 +243,7 @@
       "notes": "Finished with an effect reminiscent of coral or creatures found deep in the ocean, our set of Four Blue Reactive Glaze Glass Baubles are the ideal festive decorations for those who love the sea and all its wonderful inhabitants.",
       "category": "tree decorations",
       "id": 24
+
     }
   ]
 }

@@ -2,6 +2,7 @@ import { Button, Container, Grid, makeStyles, Typography } from "@material-ui/co
 import React from "react";
 import ItemCards from "./ItemCards";
 
+
 const useStyles = makeStyles((theme) => ({
   title: {
     [theme.breakpoints.down('md')]: {
@@ -23,10 +24,14 @@ const ListOfItems = ({ products }) => {
 
   const classes = useStyles()
 
+ 
+
+
   return (
     <>
-      <div style={{ alignItems: "center" }}>
-        <Container>
+      <div style={{ alignItems: "center", paddingTop: "30px" }}>
+        <Container maxWidth="md">
+
           <Typography
             variant="h2"
             align="center"
@@ -37,9 +42,11 @@ const ListOfItems = ({ products }) => {
           >
             CHRISTMAS DECORATIONS
           </Typography>
-          <p style={{fontSize: '28px'}} sclassName={classes.text}>
+
+         <p style={{fontSize: '28px'}} sclassName={classes.text}>
           Discover our magical Christmas décor collection of twinkling Christmas wreaths and Christmas garlands, delightful Christmas room decorations, and accessories that will bring out the excited child in us all. Centre your festive scheme around a fabulous faux Christmas tree, and finish with the understated elegance of glass decorations or the whimsical fancy of gold and silver Christmas decorations.
           </p>
+
         </Container>
         <Grid container spacing={3}>
           {products.map((product) => (
@@ -48,9 +55,7 @@ const ListOfItems = ({ products }) => {
             </Grid>
           ))}
         </Grid>
-
-      </div> 
-
+      </div>
     </>
   );
 };
