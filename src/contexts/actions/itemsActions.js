@@ -16,3 +16,8 @@ export const productsError = (msg) => ({
   type: GET_PRODUCTS_ERROR,
   payload: msg,
 });
+
+export const setSearchResults = (data) => ({
+  type: SET_SEARCH_RESULTS,
+  payload: data,
+});

@@ -9,11 +9,13 @@ import {
   GET_PRODUCT_LOADING,
   GET_CART,
   ADD_TO_CART,
+  SET_SEARCH_RESULTS,
 } from "../utils/constants";
 import {
   productsError,
   productsLoading,
   productsSuccess,
+  setSearchResults,
 } from "./actions/itemsActions";
 import {
   productError,
@@ -37,6 +39,7 @@ const initialState = {
     error: null,
     product: null,
   },
+  searchResults: [],
   cartData: JSON.parse(localStorage.getItem("cart"))
     ? JSON.parse(localStorage.getItem("cart")).decors.length
     : 0,
@@ -85,6 +88,11 @@ const reducer = (state, action) => {
           error: action.payload,
           product: null,
         },
+      };
+    case SET_SEARCH_RESULTS:
+      return {
+        ...state,
+        searchResults: action.payload,
       };
 
     case ADD_TO_CART: {
@@ -174,7 +182,18 @@ const ItemsContext = ({ children }) => {
     const url = `${location.pathname}?${search.toString()}`;
     navigate(url);
   };
-
+  const fetchSearchProducts = async (value) => {
+    try {
+      if (!value) {
+        dispatch(setSearchResults([]));
+        return;
+      }
+      const { data } = await $api(`?q=${value}`);
+      dispatch(setSearchResults(data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   const addToCart = (product) => {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
@@ -242,6 +261,8 @@ const ItemsContext = ({ children }) => {
     addToCart,
     getCart,
     deleteProductFromCart,
+    searchResults: state.searchResults,
+    fetchSearchProducts,
   };
 
   return (

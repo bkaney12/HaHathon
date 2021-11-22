@@ -1,0 +1,13 @@
+.search {
+   min-width: 200px;
+   min-height: 150px;
+   background-color: #fff;
+   border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+   padding: 20px 10px 20px 30px;
+}
+
+.search p {
+   color: #000;
+   cursor: pointer;
+}

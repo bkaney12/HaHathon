@@ -1,0 +1,23 @@
+.order-container {
+  display: flex;
+  justify-content: center;
+}
+
+.order-container label {
+  font-size: 18px;
+}
+
+.order-title {
+  font-size: 28px;
+  justify-content: center;
+}
+
+.order-inp {
+  width: 100%;
+  height: 30px;
+  border: 1px solid black;
+}
+
+.order-summary {
+  font-size: 18px;
+}

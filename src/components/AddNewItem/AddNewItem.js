@@ -14,7 +14,7 @@ const AddNewItem = () => {
     image2: "",
     image3: "",
     price: "",
-    description: "",
+    notes: "",
     category: "",
     notes: "",
   });
@@ -31,7 +31,6 @@ const AddNewItem = () => {
       !form.title ||
       !form.image ||
       !form.price ||
-      !form.description ||
       !form.notes ||
       !form.category ||
       !form.image2 ||
@@ -62,8 +61,8 @@ const AddNewItem = () => {
                 />
                 {/* <textarea
                   type="text"
-                  placeholder="Description"
-                  name="description"
+                  placeholder="Notes"
+                  name="notes"
                   onChange={handleChange}
                   value={form.description}
                 /> */}

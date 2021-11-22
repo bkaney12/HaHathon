@@ -1,3 +1,13 @@
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import { useProducts } from "../../contexts/ItemsContext";
+import { blueGrey } from "@material-ui/core/colors";
+// import { ButtonBack, ButtonNext, CarouselProvider, ImageWithZoom, Slide, Slider } from 'pure-react-carousel';
+import CreateIcon from "@material-ui/icons/Create";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
+import DeleteIcon from "@material-ui/icons/Delete";
+
 import {
   Button,
   Card,
@@ -9,15 +19,7 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router";
-import { useProducts } from "../../contexts/ItemsContext";
-import { blueGrey } from "@material-ui/core/colors";
-// import { ButtonBack, ButtonNext, CarouselProvider, ImageWithZoom, Slide, Slider } from 'pure-react-carousel';
-import CreateIcon from "@material-ui/icons/Create";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
-import DeleteIcon from "@material-ui/icons/Delete";
+
 import MyLink from "../../shared/MyLink";
 import { checkItemInCart } from "../../utils/check-cart";
 // import { checkItemInCart } from "../../utils/check-cart";
@@ -60,11 +62,11 @@ const ItemsDetails = () => {
 
   const navigate = useNavigate();
 
-  const classes = useStyles();
-
   useEffect(() => {
     fetchOneProduct(id);
-  }, []);
+  }, [id]);
+
+  const classes = useStyles();
 
   const handleReverse = () => {
     deleteProduct(id);
