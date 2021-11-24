@@ -31,7 +31,6 @@ const AddNewItem = () => {
       !form.title ||
       !form.image ||
       !form.price ||
-
       !form.notes ||
       !form.category ||
       !form.image2 ||

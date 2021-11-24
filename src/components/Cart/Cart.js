@@ -11,6 +11,7 @@ import TableRow from "@material-ui/core/TableRow";
 import { IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/core/styles";
+import MyLink from "../../shared/MyLink";
 
 const useStyles = makeStyles({
   table: {
@@ -22,18 +23,17 @@ const Cart = () => {
   const { cart, getCart, cartData, deleteProductFromCart } = useProducts();
   useEffect(() => {
     getCart();
-  }, [cart]);
-  console.log(cart);
+  }, [cartData]);
+  // console.log(cart);
   const classes = useStyles();
-  if (!cartData) {
-  }
+
   return (
     <>
-      {cart && cart.decors ? (
+      {cart && cart.decors && cartData ? (
         <>
           {
             <Grid container>
-              <Grid item md={7}>
+              <Grid item md={8}>
                 <Paper elevation={4}>
                   <h1>You have {cartData} item(s) in your cart :</h1>
                   <TableContainer>
@@ -116,14 +116,16 @@ const Cart = () => {
                   </Typography>
                   {/* ))} */}
                   <br />
-                  <Button
-                    style={{ width: "100%" }}
-                    align="right"
-                    variant="contained"
-                    color="primary"
-                  >
-                    ORDER
-                  </Button>
+                  <MyLink to="/order">
+                    <Button
+                      style={{ width: "100%" }}
+                      align="right"
+                      variant="contained"
+                      color="primary"
+                    >
+                      ORDER
+                    </Button>
+                  </MyLink>
                 </Paper>
               </Grid>
             </Grid>

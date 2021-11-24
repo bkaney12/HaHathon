@@ -8,7 +8,7 @@ import ListOfItems from "../Items/ListOfItems";
 import "./content.css";
 
 const Content = () => {
-   const { fetchProducts, loading, error, products } = useProducts();
+  const { fetchProducts, loading, error, products } = useProducts();
 
   const [page, setPage] = useState(0);
 
@@ -28,11 +28,9 @@ const Content = () => {
   };
   const location = useLocation();
 
-
   useEffect(() => {
     fetchProducts();
   }, [location.search]);
-
 
   return (
     <>
