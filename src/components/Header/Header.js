@@ -27,9 +27,8 @@ import {
   Paper,
   TextField,
 } from "@material-ui/core";
-
+import PersonIcon from '@material-ui/icons/Person';
 import MyLink from "../../shared/MyLink";
-
 import { useNavigate } from "react-router";
 import { useProducts } from "../../contexts/ItemsContext";
 
@@ -120,6 +119,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: '35px',
     zIndex: 999,
+  },
+  contentTitle: {
+    fontSize: '22px',
   }
 }));
 
@@ -168,9 +170,6 @@ export default function Header() {
               color="inherit"
               aria-label="open drawer"
             >
-              {/* <Button onClick={handleClickAdd} variant="outlined">
-                add
-              </Button> */}
             </IconButton>
             <MyLink to="/">
               <Typography className={classes.title} variant="h6" noWrap>
@@ -269,10 +268,11 @@ export default function Header() {
                 </DialogActions>
               </Dialog>
             </Box>
-
-            {/* <Button color="inherit" variant="outlined">
-              Sign Up
-            </Button> */}
+            <MyLink to="/customers-account">
+              <IconButton>
+                <PersonIcon />
+              </IconButton>
+            </MyLink>
           </Toolbar>
         </AppBar>
       </div>
@@ -287,18 +287,12 @@ export default function Header() {
           <Grid container>
             <Grid item md={9}>
               <div className={classes.featuresPostContent}>
-                <Typography
-                  component="h1"
-                  variant="h3"
-                  color="inherit"
-                  gutterBottom
-                >
-                  Зима близко
-                </Typography>
+                <div className={classes.contentTitle}>
+                  <i>it's all about</i>
+                  <h2>CHRISTMAS</h2>
+                </div>
                 <Typography component="h5" color="inherit" paragraph>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Magnam, perferendis amet in delectus, architecto dignissimos
-                  quos tempora eos laborum sint consectetur quibusdam adipisci!
+                Transform every corner of your home this festive season with our collection of enchanting Christmas decorations. From stylish wicker tree skirts and whimsical felt friends, to Christmas window stickers, quaint ornaments and snow globes, here is a collection to truly deliver the Christmas magic this year.
                 </Typography>
 
                 <Button

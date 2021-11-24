@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import { useProducts } from "../../contexts/ItemsContext";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
-
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import NativeSelect from "@material-ui/core/NativeSelect";
@@ -94,10 +91,10 @@ const FilterPart = () => {
     setCategory(event.target.value);
   };
 
-  // const handleFilterCategory = (e) => {
-  //   fetchByParams("category", e.target.value);
-  //   console.log(e.target);
-  // };
+  const handleFilterCategory = (e) => {
+    fetchByParams("category", e.target.value);
+    console.log(e.target);
+  };
   return (
     <>
       <div className={classes.main}>
@@ -116,7 +113,7 @@ const FilterPart = () => {
             </MenuItem>
             <MenuItem value="all">All</MenuItem>
             <MenuItem value="trees">Trees</MenuItem>
-            <MenuItem value="treeDecorations">Tree decorations</MenuItem>
+            <MenuItem value="tree decorations">Tree decorations</MenuItem>
             <MenuItem value="lighting">Lighting</MenuItem>
             <MenuItem value="accessories">Accessories</MenuItem>
           </Select>

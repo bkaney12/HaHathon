@@ -1,7 +1,6 @@
 import { Paper, Grid, Typography, Button } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useProducts } from "../../contexts/ItemsContext";
-
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -11,6 +10,7 @@ import TableRow from "@material-ui/core/TableRow";
 import { IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/core/styles";
+import MyLink from "../../shared/MyLink";
 
 const useStyles = makeStyles({
   table: {
@@ -20,20 +20,21 @@ const useStyles = makeStyles({
 
 const Cart = () => {
   const { cart, getCart, cartData, deleteProductFromCart } = useProducts();
+
   useEffect(() => {
     getCart();
   }, [cart]);
   console.log(cart);
+
   const classes = useStyles();
-  if (!cartData) {
-  }
+
   return (
     <>
-      {cart && cart.decors ? (
+      {cart && cart.decors && cartData ? (
         <>
           {
             <Grid container>
-              <Grid item md={7}>
+              <Grid item md={8}>
                 <Paper elevation={4}>
                   <h1>You have {cartData} item(s) in your cart :</h1>
                   <TableContainer>
@@ -44,7 +45,6 @@ const Cart = () => {
                             <h4>Title</h4>
                           </TableCell>
                           <TableCell align="center">Image</TableCell>
-
                           <TableCell align="center">Price</TableCell>
                           <TableCell align="center">Count</TableCell>
                           <TableCell align="center">SubTotal</TableCell>
@@ -58,7 +58,6 @@ const Cart = () => {
                               {item.product.title}
                               Chrismas tree
                             </TableCell>
-
                             <TableCell align="center">
                               <img
                                 src={item.product.image}
@@ -80,10 +79,8 @@ const Cart = () => {
                                 // }
                               />
                             </TableCell>
-
                             <TableCell align="center">
                               {item.subPrice}
-                              {/* 2000 */}
                             </TableCell>
                             <TableCell align="center">
                               <IconButton
@@ -114,23 +111,24 @@ const Cart = () => {
                   >
                     Total price: {cart.totalPrice}
                   </Typography>
-                  {/* ))} */}
                   <br />
-                  <Button
-                    style={{ width: "100%" }}
-                    align="right"
-                    variant="contained"
-                    color="primary"
-                  >
-                    ORDER
-                  </Button>
+                  <MyLink>
+                    <Button
+                      style={{ width: "100%" }}
+                      align="right"
+                      variant="contained"
+                      color="primary"
+                    >
+                      ORDER
+                    </Button>
+                  </MyLink>
                 </Paper>
               </Grid>
             </Grid>
           }
         </>
       ) : (
-        <h1>Ваша корзина пуста</h1>
+        <h1>Cart is empty</h1>
       )}
     </>
   );

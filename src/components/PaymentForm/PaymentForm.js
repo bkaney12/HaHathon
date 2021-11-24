@@ -109,7 +109,7 @@ const PaymentForm = () => {
                       open={open}
                       onClose={handleClose}
                       TransitionComponent={transition}
-                      message="Paid Successfully"
+                      message="Payment ✅"
                       key={transition ? transition.name : ''}     
                     />
                 </Paper>

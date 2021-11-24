@@ -10,7 +10,9 @@ import {
   GET_PRODUCT_LOADING,
   GET_CART,
   ADD_TO_CART,
-   SET_SEARCH_RESULTS 
+  SET_SEARCH_RESULTS, 
+  ADD_AND_DELETE_IN_FAVS,
+  GET_ITEM
 } from "../utils/constants";
 import {
   productsError,
@@ -25,7 +27,7 @@ import {
 } from "./actions/itemDetailsActions";
 import { useNavigate, useLocation } from "react-router";
 import { calcSubPrice, calcTotalPrice } from "../utils/calculations";
-import { checkItemInCart } from "../utils/check-cart";
+import { checkItemInCart, checkItemInFavs } from "../utils/check-cart";
 
 
 const productsContext = createContext();
@@ -42,12 +44,11 @@ const initialState = {
     error: null,
     product: null,
   },  
-    searchResults: [],
-  cartData: JSON.parse(localStorage.getItem("cart"))
-    ? JSON.parse(localStorage.getItem("cart")).decors.length
-    : 0,
+  searchResults: [],
+  cartData: JSON.parse(localStorage.getItem("cart")).products.length ? JSON.parse(localStorage.getItem("cart")).decors.length : 0,
   cart: {},
-
+  favsData: JSON.parse(localStorage.getItem("favs")) ? JSON.parse(localStorage.getItem("favs")).products.length : 0,
+  favs: {},
 };
 
 const reducer = (state, action) => {
@@ -83,7 +84,6 @@ const reducer = (state, action) => {
         },
       };
 
-
     case GET_PRODUCT_ERROR:
       return {
         ...state,
@@ -94,13 +94,12 @@ const reducer = (state, action) => {
           product: null,
         },
       };
+    
     case SET_SEARCH_RESULTS: 
-         return {
-            ...state,
-            searchResults: action.payload,
-         };
-
-  
+      return {
+        ...state,
+        searchResults: action.payload,
+      };
 
     case ADD_TO_CART: {
       return {
@@ -108,16 +107,29 @@ const reducer = (state, action) => {
         cartData: action.payload,
       };
     }
+
     case GET_CART: {
       return {
         ...state,
         cart: action.payload,
       };
     }
+
+    case ADD_AND_DELETE_IN_FAVS: {
+      return {
+        ...state, favsData: action.payload,
+      }
+    }
+
+    case GET_ITEM: {
+      return {
+        ...state, favs: action.payload
+      }
+    }
+
     default:
       return state;
   }
-
 };
 
 const ItemsContext = ({ children }) => {
@@ -132,7 +144,6 @@ const ItemsContext = ({ children }) => {
       const { data } = await $api(`${window.location.search}`);
       setTimeout(() => {
         dispatch(productsSuccess(data));
-
       }, 200);
 
       // console.log(data);
@@ -168,6 +179,7 @@ const ItemsContext = ({ children }) => {
       console.log(e.message);
     }
   };
+
   const editItem = (item) => {
     try {
       return $api.patch(`/${item.id}`, item);
@@ -178,7 +190,6 @@ const ItemsContext = ({ children }) => {
 
   const fetchByParams = async (query, value) => {
     const search = new URLSearchParams(location.search);
-
     if (value === "all") {
       search.delete(query);
     } else if (Array.isArray(value)) {
@@ -191,26 +202,28 @@ const ItemsContext = ({ children }) => {
     const url = `${location.pathname}?${search.toString()}`;
     navigate(url);
   };
-   const fetchSearchProducts = async (value) => {
+
+    const fetchSearchProducts = async (value) => {
       try {
-         if (!value) {
+        if (!value) {
             dispatch(setSearchResults([]));
             return;
-         } 
+        } 
             const { data } = await $api(`?q=${value}`)
             dispatch(setSearchResults(data))
       } catch (error) {
-         console.log(error.message)
+        console.log(error.message)
       }
-   }
-  const addToCart = (product) => {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    if (!cart) {
-      cart = {
-        decors: [],
-        totalPrice: 0,
-      };
     }
+
+    const addToCart = (product) => {
+      let cart = JSON.parse(localStorage.getItem("cart"));
+      if (!cart) {
+        cart = {
+          decors: [],
+          totalPrice: 0,
+        };
+      }
 
     let newProduct = {
       count: 1,
@@ -223,11 +236,13 @@ const ItemsContext = ({ children }) => {
     cart.decors.push(newProduct);
     cart.totalPrice = calcTotalPrice(cart.decors);
     localStorage.setItem("cart", JSON.stringify(cart));
+
     dispatch({
       type: ADD_TO_CART,
       payload: cart.decors.length,
     });
   };
+
   const deleteProductFromCart = (product) => {
     let cart = JSON.parse(localStorage.getItem("cart"));
     const isItemInCart = checkItemInCart(cart.decors, product.id);
@@ -243,15 +258,52 @@ const ItemsContext = ({ children }) => {
       payload: cart.decors.length,
     });
   };
+
   const getCart = () => {
     let cartFromLS = JSON.parse(localStorage.getItem("cart"));
     dispatch({
       type: GET_CART,
       payload: cartFromLS,
     });
-
-    // console.log(cartFromLS);
   };
+
+  const addAndDeleteInFavs = (product) => {
+    let favs = JSON.parse(localStorage.getItem('favs'))
+    if (!favs) {
+      favs = {
+        products: [],
+      }
+    }
+    let newProduct = {
+      count: 1,
+      product: product
+
+    }
+    const isProductInFavs = checkItemInFavs(favs.products, product.id);
+    if(isProductInFavs) {
+      favs.products = favs.products.filter((item) => item.product.id !== product.id);
+    } else {
+      favs.products.push(newProduct)
+    }
+
+    localStorage.setItem('favs', JSON.stringify(favs));
+
+    dispatch({
+      type: ADD_AND_DELETE_IN_FAVS,
+      payload: favs.products.length,
+    })
+  };
+
+  const getItem = () => {
+    let favsFromLS = JSON.parse(localStorage.getItem('favs'))
+    dispatch({
+      type: GET_ITEM,
+      payload: favsFromLS
+    })
+  }
+
+
+
   const values = {
     products: state.products,
     loading: state.loading,
@@ -259,10 +311,14 @@ const ItemsContext = ({ children }) => {
     productDetails: state.productDetails.product,
     productDetailsLoading: state.productDetails.loading,
     productDetailsError: state.productDetails.error,
+    searchResults: state.searchResults,
     cart: state.cart,
     cartData: state.cartData,
+    favsData: state.favsData,
+    favs: state.favs,
     fetchProducts,
     fetchOneProduct,
+    fetchSearchProducts,
     deleteProduct,
     addItem,
     editItem,
@@ -270,10 +326,8 @@ const ItemsContext = ({ children }) => {
     addToCart,
     getCart,
     deleteProductFromCart,
-     searchResults: state.searchResults,
-     fetchSearchProducts,
-    
-    
+    addAndDeleteInFavs,
+    getItem
   };
 
   return (

@@ -1,9 +1,12 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Card, CardMedia, CardContent, Typography, CardActions, CardActionArea, Button, Grid, IconButton } from '@material-ui/core';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import AcUnitIcon from '@material-ui/icons/AcUnit';
 import MyLink from '../../shared/MyLink';
 import { blueGrey } from '@material-ui/core/colors';
+import { useProducts } from '../../contexts/ItemsContext';
+import { checkItemInFavs } from '../../utils/check-cart';
 
 
 const useStyles = makeStyles({
@@ -19,12 +22,25 @@ const useStyles = makeStyles({
    },
    cardContent: {
       minHeight: '140px'
+   },
+   actionArea: {
+      justifyContent: 'space-between'
    }
 })
 
-const ItemCards = ({ product }) => {
+const ItemCards = ({ product, favs }) => {
    const classes = useStyles();
 
+   const { addAndDeleteInFavs } = useProducts();
+
+   const isProductInFavs = () => {
+      if (favs) {
+         return checkItemInFavs(favs.products, product.id)
+      }
+      return false;
+   }
+
+   const inFavs = isProductInFavs();
 
    return (
       <Container className={classes.cardGrid}>
@@ -43,11 +59,9 @@ const ItemCards = ({ product }) => {
                      <Typography>
                         Price: {product.price}
                      </Typography>
-                     {/* <Typography> */}
                         <i>
                            christmas {product.category}
                         </i>
-                     {/* </Typography> */}
                   </CardContent>
                </CardActionArea>
             </MyLink>
@@ -57,8 +71,11 @@ const ItemCards = ({ product }) => {
                      View
                   </Button>
                </MyLink>
-               <IconButton>
-                  <FavoriteIcon />
+               <IconButton color="primary">
+                  <AcUnitIcon />
+               </IconButton>
+               <IconButton onClick={() => addAndDeleteInFavs(product)} color={inFavs ? "secondary" : "default"} >
+                  <BookmarkBorderIcon />
                </IconButton>
             </CardActions>
          </Card>
