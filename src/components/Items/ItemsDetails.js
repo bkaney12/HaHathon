@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useProducts } from "../../contexts/ItemsContext";
 import { blueGrey } from "@material-ui/core/colors";
@@ -6,15 +6,24 @@ import { blueGrey } from "@material-ui/core/colors";
 import CreateIcon from "@material-ui/icons/Create";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
-import DeleteIcon from "@material-ui/icons/Delete";
 
+import DeleteIcon from "@material-ui/icons/Delete";
 import {
   Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Grid,
+  TextField,
+} from "@material-ui/core";
+
+import {
   Card,
   CardActions,
   CardContent,
   CardHeader,
-  Grid,
   IconButton,
   makeStyles,
   Typography,
@@ -22,6 +31,8 @@ import {
 
 import MyLink from "../../shared/MyLink";
 import { checkItemInCart } from "../../utils/check-cart";
+import { commentsContext } from "../../contexts/CommentsContext";
+import Comments from "../Comments/Comments";
 // import { checkItemInCart } from "../../utils/check-cart";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,8 +53,13 @@ const useStyles = makeStyles((theme) => ({
     // boxShadow: 'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px'
   },
   actions: {
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
+  // card: {
+  //   width: "400px",
+  //   height: "730px",
+  //   marginLeft: "30px",
+  // },
 }));
 
 const ItemsDetails = () => {
@@ -53,6 +69,15 @@ const ItemsDetails = () => {
   const cart = JSON.parse(localStorage.getItem("cart")) ?? false;
   //   console.log(cart.decors);
 
+  const [open, setOpen] = useState(false);
+  const { comments, fetchComments, addComment } = useContext(commentsContext);
+
+  const handleClickOpenComment = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   const isItemInCart = () => {
     if (cart) {
       return checkItemInCart(cart.decors, cart.decors.product.id);
@@ -73,36 +98,54 @@ const ItemsDetails = () => {
     navigate("/");
   };
 
-  return (
-    <Grid container>
-      {productDetails ? (
-        <Grid container className={classes.data_container}>
-          <Grid item md={6}>
-            <img src={productDetails.image} className={classes.img} />
-          </Grid>
-          <Grid item md={4}>
-            <Card>
-              <CardContent>
-                <h1>{productDetails.title}</h1>
-                <i className={classes.text}>Price: {productDetails.price}</i>
-                <i className={classes.text}>
-                  Category: christmas {productDetails.category}
-                </i>
-                <h2>Byuer's notes</h2>
-                <p className={classes.notes}>{productDetails.notes}</p>
-                <MyLink to="/cart">
-                  <IconButton>
-                    <Button
-                      style={{ color: blueGrey[500], marginBottom: 0 }}
-                      variant="contained"
-                      onClick={() => addToCart(productDetails)}
-                    >
-                      Add to Basket
-                    </Button>
-                  </IconButton>
-                </MyLink>
+  const [form, setForm] = useState({
+    user: "",
+    comment: "",
+  });
 
-                {/* {isItemInCart ? (
+  const handleChange = (e) => {
+    const values = {
+      ...form,
+      [e.target.name]: e.target.value,
+    };
+    setForm(values);
+  };
+
+  const handleClickAdd = async () => {
+    await addComment(form);
+    setOpen(false);
+  };
+  return (
+    <>
+      <Grid container>
+        {productDetails ? (
+          <Grid container className={classes.data_container}>
+            <Grid item md={6}>
+              <img src={productDetails.image} className={classes.img} />
+            </Grid>
+            <Grid item md={4}>
+              <Card className={classes.card}>
+                <CardContent>
+                  <h1>{productDetails.title}</h1>
+                  <i className={classes.text}>Price: {productDetails.price}</i>
+                  <i className={classes.text}>
+                    Category: christmas {productDetails.category}
+                  </i>
+                  <h2>Byuer's notes</h2>
+                  <p className={classes.notes}>{productDetails.notes}</p>
+                  <MyLink to="/cart">
+                    <IconButton>
+                      <Button
+                        style={{ color: blueGrey[500], marginBottom: 0 }}
+                        variant="contained"
+                        onClick={() => addToCart(productDetails)}
+                      >
+                        Add to Basket
+                      </Button>
+                    </IconButton>
+                  </MyLink>
+
+                  {/* {isItemInCart ? (
                   <IconButton>
                     <Button
                       style={{ color: blueGrey[500], marginBottom: 0 }}
@@ -126,28 +169,64 @@ const ItemsDetails = () => {
                     </IconButton>
                   </MyLink>
                 )} */}
-              </CardContent>
-              <CardActions className={classes.actions}>
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
-                </IconButton>
-                <IconButton>
-                  <ChatBubbleOutlineIcon />
-                </IconButton>
-                <IconButton onClick={() => handleReverse(deleteProduct(id))}>
-                  <DeleteIcon />
-                </IconButton>
-                <IconButton>
-                  <MyLink to={`/edit/${productDetails.id}`}>
-                    <CreateIcon />
-                  </MyLink>
-                </IconButton>
-              </CardActions>
-            </Card>
+                </CardContent>
+                <CardActions className={classes.actions}>
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+                  </IconButton>
+                  <IconButton>
+                    <ChatBubbleOutlineIcon onClick={handleClickOpenComment} />
+                  </IconButton>
+                  <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="form-dialog-title"
+                  >
+                    <DialogTitle id="form-dialog-title">Comment me</DialogTitle>
+                    <DialogContent>
+                      <TextField
+                        autoFocus
+                        margin="dense"
+                        name="user"
+                        id="user"
+                        label="user"
+                        type="email"
+                        fullWidth
+                        value={form.user}
+                        onChange={handleChange}
+                      />
+                      <textarea
+                        typeof="text"
+                        name="comment"
+                        value={form.comment}
+                        onChange={handleChange}
+                      />
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose} color="inherit">
+                        Cancel
+                      </Button>
+                      <Button onClick={handleClickAdd} color="inherit">
+                        Add
+                      </Button>
+                    </DialogActions>
+                  </Dialog>
+                  <IconButton onClick={() => handleReverse(deleteProduct(id))}>
+                    <DeleteIcon />
+                  </IconButton>
+                  <IconButton>
+                    <MyLink to={`/edit/${productDetails.id}`}>
+                      <CreateIcon />
+                    </MyLink>
+                  </IconButton>
+                </CardActions>
+              </Card>
+            </Grid>
           </Grid>
-        </Grid>
-      ) : null}
-    </Grid>
+        ) : null}
+      </Grid>
+      <Comments />
+    </>
   );
 };
 

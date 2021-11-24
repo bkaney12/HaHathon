@@ -116,7 +116,7 @@ const FilterPart = () => {
             </MenuItem>
             <MenuItem value="all">All</MenuItem>
             <MenuItem value="trees">Trees</MenuItem>
-            <MenuItem value="treeDecorations">Tree decorations</MenuItem>
+            <MenuItem value="tree decorations">Tree decorations</MenuItem>
             <MenuItem value="lighting">Lighting</MenuItem>
             <MenuItem value="accessories">Accessories</MenuItem>
           </Select>
