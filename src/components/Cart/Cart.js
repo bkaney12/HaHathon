@@ -23,9 +23,8 @@ const Cart = () => {
 
   useEffect(() => {
     getCart();
-  }, [cart]);
-  console.log(cart);
-
+  }, [cartData]);
+  // console.log(cart);
   const classes = useStyles();
 
   return (
@@ -34,7 +33,7 @@ const Cart = () => {
         <>
           {
             <Grid container>
-              <Grid item md={8}>
+              <Grid item md={8} sm={12}>
                 <Paper elevation={4}>
                   <h1>You have {cartData} item(s) in your cart :</h1>
                   <TableContainer>
@@ -99,7 +98,7 @@ const Cart = () => {
                   </TableContainer>
                 </Paper>
               </Grid>
-              <Grid item md={4}>
+              <Grid item md={4} sm={12}>
                 <Paper
                   elevation={6}
                   style={{ marginLeft: "50px", marginTop: "100px" }}
@@ -112,7 +111,7 @@ const Cart = () => {
                     Total price: {cart.totalPrice}
                   </Typography>
                   <br />
-                  <MyLink>
+                  <MyLink to="/order">
                     <Button
                       style={{ width: "100%" }}
                       align="right"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Card, CardMedia, CardContent, Typography, CardActions, CardActionArea, Button, Grid, IconButton } from '@material-ui/core';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
@@ -71,9 +71,6 @@ const ItemCards = ({ product, favs }) => {
                      View
                   </Button>
                </MyLink>
-               <IconButton color="primary">
-                  <AcUnitIcon />
-               </IconButton>
                <IconButton onClick={() => addAndDeleteInFavs(product)} color={inFavs ? "secondary" : "default"} >
                   <BookmarkBorderIcon />
                </IconButton>
@@ -83,4 +80,4 @@ const ItemCards = ({ product, favs }) => {
    )
 }
 
-export default ItemCards
+export default ItemCards;

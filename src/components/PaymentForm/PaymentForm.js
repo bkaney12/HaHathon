@@ -1,50 +1,48 @@
 import { Button, Card, Grid, Paper, Slide } from "@material-ui/core";
-import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar from "@material-ui/core/Snackbar";
 import React, { useState } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import "./PaymentForm.css";
 import { useNavigate } from "react-router";
-import { blueGrey } from '@material-ui/core/colors';
-
+import { blueGrey } from "@material-ui/core/colors";
 
 function TransitionUp(props) {
   return <Slide {...props} direction="up" />;
 }
 
 const PaymentForm = () => {
-    const [form, setForm] = useState({
-        number: "",
-        name: "",
-        expiry: "",
-        cvc: "",
-    });
-    const [focus, setFocus] = useState("");
-    const [open, setOpen] = useState(false);
-    const [transition, setTransition] = useState(undefined);
-    const navigate = useNavigate();
+  const [form, setForm] = useState({
+    number: "",
+    name: "",
+    expiry: "",
+    cvc: "",
+  });
+  const [focus, setFocus] = useState("");
+  const [open, setOpen] = useState(false);
+  const [transition, setTransition] = useState(undefined);
+  const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        const values = {
-        ...form,
-        [e.target.name]: e.target.value,
-        };
-        setForm(values);
+  const handleChange = (e) => {
+    const values = {
+      ...form,
+      [e.target.name]: e.target.value,
     };
-  
-    const handleClick = (Transition) => () => {
-      if (!form.number && !form.name && !form.expiry && !form.cvc) {
-        alert("fill all blanks");
-        return;
-      }
-      setTransition(() => Transition);
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
+    setForm(values);
+  };
 
+  const handleClick = (Transition) => () => {
+    if (!form.number && !form.name && !form.expiry && !form.cvc) {
+      alert("fill all blanks");
+      return;
+    }
+    setTransition(() => Transition);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
     return (
         <>
