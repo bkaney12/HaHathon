@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Card, CardMedia, CardContent, Typography, CardActions, CardActionArea, Button, Grid, IconButton } from '@material-ui/core';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import AcUnitIcon from '@material-ui/icons/AcUnit';
 import MyLink from '../../shared/MyLink';
 import { blueGrey } from '@material-ui/core/colors';
 import { useProducts } from '../../contexts/ItemsContext';
 import { checkItemInFavs } from '../../utils/check-cart';
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
    media: {
       height: 140,
       paddingTop: "56.25%",
@@ -21,12 +20,21 @@ const useStyles = makeStyles({
       height: '100%'
    },
    cardContent: {
-      minHeight: '140px'
+      minHeight: '140px',
+      [theme.breakpoints.down('md')]: {
+         minHeight: '80px',
+      }
    },
    actionArea: {
       justifyContent: 'space-between'
+   },
+   cardTitle: {
+      fontSize: '26px',
+      [theme.breakpoints.down('md')]: {
+         fontSize: '18px'
+      }
    }
-})
+}))
 
 const ItemCards = ({ product, favs }) => {
    const classes = useStyles();
@@ -53,7 +61,7 @@ const ItemCards = ({ product, favs }) => {
                      title={product.title}
                   />
                   <CardContent className={classes.cardContent}>
-                     <Typography variant="h5" gutterBottom>
+                     <Typography variant="h5" gutterBottom className={classes.cardTitle}>
                         {product.title}
                      </Typography>
                      <Typography>

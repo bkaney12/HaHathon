@@ -33,6 +33,7 @@ import { useNavigate } from "react-router";
 import { useProducts } from "../../contexts/ItemsContext";
 
 import Search from "../Search/Search";
+import { useAuth } from "../../contexts/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -121,7 +122,16 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 999,
   },
   contentTitle: {
-    fontSize: '22px',
+      fontSize: '22px',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '14px'
+    }
+  },
+  paragraph: {
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "block",
+    },
   }
 }));
 
@@ -141,8 +151,8 @@ export default function Header() {
   const [searchActive, setSearchActive] = useState(false);
   const { fetchSearchProducts } = useProducts();
   const navigate = useNavigate();
-
   const { cartData } = useProducts();
+  const { registerUser, user, logOut } = useAuth();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -180,54 +190,15 @@ export default function Header() {
                 onClose={handleClose1}
                 TransitionComponent={Fade}
               >
-                <MenuItem onClick={handleClose1}>Sign up</MenuItem>
-                <MenuItem
-                  color="inherit"
-                  onClick={(handleClose1, handleClickOpen)}
-                >
-                  Log in
-                </MenuItem>
-                <MenuItem onClick={handleClose1}>Logout</MenuItem>
+                {
+                  user ? (
+                    <MenuItem onClick={() => logOut()}>Log Out</MenuItem>
+                  ) : (
+                    <MenuItem onClick={() => registerUser()}>Sign up</MenuItem>
+                  )
+                }
               </Menu>
-
-              <Dialog
-                open={open}
-                onClose={handleClose1}
-                aria-labelledby="form-dialog-title"
-              >
-                <DialogTitle id="form-dialog-title">Log in</DialogTitle>
-                <DialogContent>
-                  <DialogContentText>
-                    Log in to get more content
-                  </DialogContentText>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="Email/name"
-                    type="email"
-                    fullWidth
-                  />
-                  <TextField
-                    margin="dense"
-                    id="pass"
-                    label="Password"
-                    type="password"
-                    fullWidth
-                  />
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleClose} color="inherit">
-                    Cancel
-                  </Button>
-                  <Button onClick={handleClose} color="inherit">
-                    Log in
-                  </Button>
-                </DialogActions>
-              </Dialog>
             </Box>
-
-
             <MyLink to="/">
               <Typography className={classes.title} variant="h6" noWrap>
                 WINTER IS COMING
@@ -250,7 +221,7 @@ export default function Header() {
                 </Badge>
               </IconButton>
             </MyLink>
-            <MyLink to="/customer-account">
+            <MyLink to="/customers-account">
               <IconButton>
                 <PersonIcon />
               </IconButton>
@@ -300,10 +271,12 @@ export default function Header() {
               <div className={classes.featuresPostContent}>
                 <div className={classes.contentTitle}>
                   <i>it's all about</i>
-                  <h2>CHRISTMAS</h2>
+                  <MyLink to="/">
+                    <h2>CHRISTMAS</h2>
+                  </MyLink>
                 </div>
-                <Typography component="h5" color="inherit" paragraph>
-                Transform every corner of your home this festive season with our collection of enchanting Christmas decorations. From stylish wicker tree skirts and whimsical felt friends, to Christmas window stickers, quaint ornaments and snow globes, here is a collection to truly deliver the Christmas magic this year.
+                <Typography component="h5" color="inherit" paragraph className={classes.paragraph}>
+                  Transform every corner of your home this festive season with our collection of enchanting Christmas decorations. From stylish wicker tree skirts and whimsical felt friends, to Christmas window stickers, quaint ornaments and snow globes, here is a collection to truly deliver the Christmas magic this year.
                 </Typography>
 
                 <Button

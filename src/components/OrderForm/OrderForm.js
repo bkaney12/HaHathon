@@ -1,9 +1,9 @@
-import { Button, Grid, Paper } from '@material-ui/core';
-import { blueGrey } from '@material-ui/core/colors';
-import React, { useState, useEffect } from 'react';
-import './OrderForm.css';
-import MyLink from '../../shared/MyLink';
-import { useProducts } from '../../contexts/ItemsContext';
+import { Button, Grid, Paper } from "@material-ui/core";
+import { blueGrey } from "@material-ui/core/colors";
+import React, { useState, useEffect } from "react";
+import "./OrderForm.css";
+import MyLink from "../../shared/MyLink";
+import { useProducts } from "../../contexts/ItemsContext";
 
 const OrderForm = () => {
   const [form, setForm] = useState({
@@ -14,10 +14,11 @@ const OrderForm = () => {
     city: "",
     number: "",
   });
+
   const { cart, getCart, cartData } = useProducts();
   useEffect(() => {
     getCart();
-  }, [cart]);
+  }, []);
 
   const handleChange = (e) => {
     const values = {
@@ -68,7 +69,7 @@ const OrderForm = () => {
                   </tbody>
                 </table>
               ))}
-              <h1>Total to pay : {cart.totalPrice}</h1>
+              <h1 className="order-title">Total to pay : {cart.totalPrice}</h1>
             </Paper>
           </Grid>
           <Grid item md={5} sm={9}>
@@ -121,13 +122,10 @@ const OrderForm = () => {
               </label>
               <MyLink to="/payment-page">
                 <Button
-                  style={{
-                    backgroundColor: blueGrey[500],
-                    width: "200px",
-                    height: "45px",
-                  }}
+                  style={{ backgroundColor: blueGrey[500] }}
                   variant="contained"
                   onClick={handleSubmit}
+                  className="order-btn"
                 >
                   Next
                 </Button>

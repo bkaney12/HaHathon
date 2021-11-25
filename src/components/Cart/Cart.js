@@ -12,11 +12,15 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/core/styles";
 import MyLink from "../../shared/MyLink";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   table: {
-    minWidth: 650,
+    // minWidth: 650,
+    // width: '650px',
+    [theme.breakpoints.down('md')]: {
+      width: '220px'
+    },
   },
-});
+}));
 
 const Cart = () => {
   const { cart, getCart, cartData, deleteProductFromCart } = useProducts();
@@ -24,7 +28,6 @@ const Cart = () => {
   useEffect(() => {
     getCart();
   }, [cartData]);
-  // console.log(cart);
   const classes = useStyles();
 
   return (
@@ -55,7 +58,6 @@ const Cart = () => {
                           <TableRow>
                             <TableCell component="th" scope="">
                               {item.product.title}
-                              Chrismas tree
                             </TableCell>
                             <TableCell align="center">
                               <img
@@ -73,9 +75,6 @@ const Cart = () => {
                                 type="number"
                                 style={{ width: "25px" }}
                                 value={1}
-                                // onChange={(e) =>
-                                //   handleCountChange(e.target, item.product.id)
-                                // }
                               />
                             </TableCell>
                             <TableCell align="center">

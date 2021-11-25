@@ -282,9 +282,7 @@ const ItemsContext = ({ children }) => {
     };
     const isProductInFavs = checkItemInFavs(favs.products, product.id);
     if (isProductInFavs) {
-      favs.products = favs.products.filter(
-        (item) => item.product.id !== product.id
-      );
+      favs.products = favs.products.filter((item) => item.product.id !== product.id);
     } else {
       favs.products.push(newProduct);
     }

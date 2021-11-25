@@ -1,5 +1,4 @@
 import {
-  Button,
   Container,
   Grid,
   makeStyles,
@@ -10,16 +9,15 @@ import ItemCards from "./ItemCards";
 
 const useStyles = makeStyles((theme) => ({
   title: {
+    fontSize: '36px',
     [theme.breakpoints.down("md")]: {
-      fontSize: "28px",
+      fontSize: "22px",
     },
   },
   text: {
-    [theme.breakpoints.up("md")]: {
-      fontSize: "22px",
-    },
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "18px",
+    fontSize: "24px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "16px",
       margin: "10px",
     },
   },
@@ -27,9 +25,6 @@ const useStyles = makeStyles((theme) => ({
 
 const ListOfItems = ({ products }) => {
   const classes = useStyles();
-
- 
-
 
   return (
     <>
@@ -46,7 +41,7 @@ const ListOfItems = ({ products }) => {
             CHRISTMAS DECORATIONS
           </Typography>
 
-          <p style={{ fontSize: "28px" }} sclassName={classes.text}>
+          <p className={classes.text}>
             Discover our magical Christmas décor collection of twinkling
             Christmas wreaths and Christmas garlands, delightful Christmas room
             decorations, and accessories that will bring out the excited child

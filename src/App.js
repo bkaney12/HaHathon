@@ -1,13 +1,16 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./components/routes";
+import AuthContext from "./contexts/AuthContext";
 import ItemsContext from "./contexts/ItemsContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <ItemsContext>
-        <AppRoutes />
-      </ItemsContext>
+      <AuthContext>
+        <ItemsContext>
+          <AppRoutes />
+        </ItemsContext>
+      </AuthContext>
     </BrowserRouter>
   );
 }
