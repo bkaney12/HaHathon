@@ -38,6 +38,9 @@ import Search from "../Search/Search";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    // [theme.breakpoints.down("md")]: {
+    //   height: "60px",
+    // },
   },
 
   colorPrimary: {
@@ -107,6 +110,10 @@ const useStyles = makeStyles((theme) => ({
   featuresPostContent: {
     position: "relative",
     padding: theme.spacing(3),
+    // [theme.breakpoints.down("sm")]: {
+    //   fontSize: "20px",
+    //   display: "none",
+    // },
   },
   overlay: {
     position: "absolute",
@@ -289,7 +296,7 @@ export default function Header() {
         <Container fixed>
           <div className={classes.overlay} />
           <Grid container>
-            <Grid item md={9}>
+            <Grid item md={9} sm={12} xs={12}>
               <div className={classes.featuresPostContent}>
                 <Typography
                   component="h1"
@@ -306,6 +313,7 @@ export default function Header() {
                 </Typography>
 
                 <Button
+                  className={classes.btn}
                   variant="contained"
                   color="secondary"
                   onClick={handleClickAdd}

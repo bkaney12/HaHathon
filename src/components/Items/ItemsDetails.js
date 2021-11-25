@@ -50,16 +50,10 @@ const useStyles = makeStyles((theme) => ({
   notes: {
     fontSize: "20px",
     margin: "10px 100px 10px 0",
-    // boxShadow: 'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px'
   },
   actions: {
     justifyContent: "space-around",
   },
-  // card: {
-  //   width: "400px",
-  //   height: "730px",
-  //   marginLeft: "30px",
-  // },
 }));
 
 const ItemsDetails = () => {
@@ -70,7 +64,7 @@ const ItemsDetails = () => {
   //   console.log(cart.decors);
 
   const [open, setOpen] = useState(false);
-  const { comments, fetchComments, addComment } = useContext(commentsContext);
+  const { addComment } = useContext(commentsContext);
 
   const handleClickOpenComment = () => {
     setOpen(true);
@@ -112,7 +106,12 @@ const ItemsDetails = () => {
   };
 
   const handleClickAdd = async () => {
+    if (!form.user || !form.comment) {
+      alert("I need your feedback");
+      return;
+    }
     await addComment(form);
+    setForm("");
     setOpen(false);
   };
   return (
@@ -144,36 +143,8 @@ const ItemsDetails = () => {
                       </Button>
                     </IconButton>
                   </MyLink>
-
-                  {/* {isItemInCart ? (
-                  <IconButton>
-                    <Button
-                      style={{ color: blueGrey[500], marginBottom: 0 }}
-                      variant="contained"
-                      onClick={() => addToCart(productDetails)}
-                    >
-                      Add to Basket
-                    </Button>
-                  </IconButton>
-                ) : (
-                  <MyLink to="/cart">
-                    <IconButton>
-                      <Button
-                        style={{ color: "white", marginBottom: 0 }}
-                        variant="contained"
-                        color="primary"
-                        // onClick={() => addToCart(productDetails)}
-                      >
-                        Go to Basket
-                      </Button>
-                    </IconButton>
-                  </MyLink>
-                )} */}
                 </CardContent>
                 <CardActions className={classes.actions}>
-                  <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                  </IconButton>
                   <IconButton>
                     <ChatBubbleOutlineIcon onClick={handleClickOpenComment} />
                   </IconButton>

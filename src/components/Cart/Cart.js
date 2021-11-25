@@ -13,19 +13,56 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/core/styles";
 import MyLink from "../../shared/MyLink";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   table: {
-    minWidth: 650,
+    [theme.breakpoints.down("md")]: {
+      width: "300px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "300px",
+    },
   },
-});
+  paper: {
+    [theme.breakpoints.down("sm")]: {
+      width: "300px",
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "350px",
+    },
+  },
+
+  title: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "10px",
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "30px",
+    },
+  },
+
+  paper1: {
+    marginLeft: "50px",
+    marginTop: "100px",
+    [theme.breakpoints.down("sm")]: {
+      width: "300px",
+      padding: "10px",
+      marginTop: "10px",
+      marginLeft: "0px",
+    },
+  },
+}));
 
 const Cart = () => {
-  const { cart, getCart, cartData, deleteProductFromCart } = useProducts();
+  const { cart, getCart, cartData, deleteProductFromCart, changeProductCount } =
+    useProducts();
   useEffect(() => {
     getCart();
   }, [cartData]);
   // console.log(cart);
   const classes = useStyles();
+  const handleCountChange = ({ value }, id) => {
+    changeProductCount(value, id);
+  };
 
   return (
     <>
@@ -33,9 +70,11 @@ const Cart = () => {
         <>
           {
             <Grid container>
-              <Grid item md={8}>
-                <Paper elevation={4}>
-                  <h1>You have {cartData} item(s) in your cart :</h1>
+              <Grid item md={8} sm={12} xs={12}>
+                <Paper elevation={4} className={classes.paper}>
+                  <h1 className={classes.title}>
+                    You have {cartData} item(s) in your cart :
+                  </h1>
                   <TableContainer>
                     <Table className={classes.table} aria-label="caption table">
                       <TableHead>
@@ -72,18 +111,18 @@ const Cart = () => {
                             </TableCell>
                             <TableCell align="center">
                               <input
+                                min="1"
                                 type="number"
                                 style={{ width: "25px" }}
-                                value={1}
-                                // onChange={(e) =>
-                                //   handleCountChange(e.target, item.product.id)
-                                // }
+                                value={item.count}
+                                onChange={(e) =>
+                                  handleCountChange(e.target, item.product.id)
+                                }
                               />
                             </TableCell>
 
                             <TableCell align="center">
                               {item.subPrice}
-                              {/* 2000 */}
                             </TableCell>
                             <TableCell align="center">
                               <IconButton
@@ -102,11 +141,8 @@ const Cart = () => {
                   </TableContainer>
                 </Paper>
               </Grid>
-              <Grid item md={4}>
-                <Paper
-                  elevation={6}
-                  style={{ marginLeft: "50px", marginTop: "100px" }}
-                >
+              <Grid item md={4} sm={12}>
+                <Paper elevation={6} className={classes.paper1}>
                   <Typography
                     variant="h5"
                     align="left"

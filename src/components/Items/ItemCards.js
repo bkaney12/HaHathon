@@ -17,7 +17,7 @@ import MyLink from "../../shared/MyLink";
 import { blueGrey } from "@material-ui/core/colors";
 import { TrainOutlined } from "@material-ui/icons";
 import { useProducts } from "../../contexts/ItemsContext";
-import { useParams } from "react-router";
+import { Navigate, useNavigate, useParams } from "react-router";
 
 const useStyles = makeStyles({
   media: {
@@ -37,25 +37,20 @@ const useStyles = makeStyles({
 
 const ItemCards = ({ product }) => {
   const classes = useStyles();
-  const [like, setLike] = useState(false);
-  const { editItem } = useProducts();
+  const navigate = useNavigate();
 
-  const { id } = useParams();
+  const { changeLike, editItem, fetchProducts } = useProducts();
+  const [like, setLike] = useState(product.like);
 
-  // useEffect(() => setLike(product.like), [product]);
-
-  // useEffect(() => {
-  //   if (!product.like) {
-  //     editItem({ like: true, id });
-  //   }
-  // });
-  const handleLike = () => {
-    setLike(true);
-
-    // {
-    //   product.like = !product.like;
-    // }
-    // console.log(product.like);
+  const handleLike = async () => {
+    const newProduct = {
+      ...product,
+      like: !product.like,
+    };
+    let res = await editItem(newProduct, product.id);
+    if (res.status === 200) {
+      setLike(!like);
+    }
   };
 
   return (
@@ -91,10 +86,9 @@ const ItemCards = ({ product }) => {
           <IconButton>
             <FavoriteIcon
               onClick={() => handleLike()}
-              // onClick={like}
-              // onClick={() => setLike(true)}
-              // style={{ color: !product.like ? "black" : "red" }}
-              style={{ color: !like ? "grey" : "red" }}
+           
+              style={{ color: !like ? "black" : "red" }}
+           
             />
           </IconButton>
         </CardActions>

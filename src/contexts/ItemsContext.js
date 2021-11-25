@@ -243,6 +243,25 @@ const ItemsContext = ({ children }) => {
 
     // console.log(cartFromLS);
   };
+
+  // const changeLike = () => {
+  //   state.like = !state.like;
+  // };
+
+  const changeProductCount = (newCount, id) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    cart.products = cart.decors.map((item) => {
+      if (item.product.id === id) {
+        item.count = newCount;
+        item.subPrice = calcSubPrice(item);
+      }
+      return item;
+    });
+    cart.totalPrice = calcTotalPrice(cart.decors);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    getCart();
+  };
+
   const values = {
     products: state.products,
     loading: state.loading,
@@ -263,6 +282,7 @@ const ItemsContext = ({ children }) => {
     deleteProductFromCart,
     searchResults: state.searchResults,
     fetchSearchProducts,
+    changeProductCount,
   };
 
   return (

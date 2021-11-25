@@ -1,0 +1,12 @@
+.card {
+  margin-left: 300px;
+  width: 800px;
+  height: 150px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: gainsboro;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+}

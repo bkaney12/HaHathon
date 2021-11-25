@@ -39,6 +39,7 @@ const BootstrapInput = withStyles((theme) => ({
       marginTop: theme.spacing(3),
     },
   },
+
   input: {
     borderRadius: 4,
     position: "relative",
@@ -94,16 +95,21 @@ const FilterPart = () => {
     setCategory(event.target.value);
   };
 
-  // const handleFilterCategory = (e) => {
-  //   fetchByParams("category", e.target.value);
-  //   console.log(e.target);
-  // };
   return (
     <>
       <div className={classes.main}>
-        <FormControl className={classes.margin}></FormControl>
+        <FormControl className={classes.margin}>
+          {" "}
+          <label
+            for="demo-customized-select"
+            style={{ fontSize: "20px", marginRight: "10px" }}
+          >
+            FILTER BY:
+          </label>{" "}
+        </FormControl>
         <FormControl className={classes.margin}>
           <Select
+            style={{ width: "120px" }}
             labelId="demo-customized-select-label"
             id="demo-customized-select"
             value={category}
@@ -111,9 +117,6 @@ const FilterPart = () => {
             onClick={(e) => fetchByParams("category", e.target.value)}
             input={<BootstrapInput />}
           >
-            <MenuItem value="">
-              <em>Sort by categories</em>
-            </MenuItem>
             <MenuItem value="all">All</MenuItem>
             <MenuItem value="trees">Trees</MenuItem>
             <MenuItem value="tree decorations">Tree decorations</MenuItem>
