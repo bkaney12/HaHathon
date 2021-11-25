@@ -1,6 +1,7 @@
 import {
   BottomNavigation,
   BottomNavigationAction,
+  Grid,
   Typography,
 } from "@material-ui/core";
 import React from "react";
@@ -32,6 +33,7 @@ const Footer = () => {
       {/* <Typography variant="h5" align="center">
         I love winter
       </Typography> */}
+
       <div className={classes.main}>
         <BottomNavigation
           value={value}

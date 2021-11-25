@@ -20,7 +20,7 @@
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029840-detail2.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030059-1640_snow_5.png",
       "notes": "Treat yourself to all the joy and festive cheer afforded by a few gingerbread friends this winter, but without time and effort spent on baking them. Our set of three Shatterproof gingerbread figures look good enough to eat, but will never go stale and can be hung on your tree year after year.",
-      "like": false
+      "like": true
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030273-on.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030273-detail3.png",
       "notes": "A fabulous way to decorate your tree, our set of twelve light up baubles feature four different designs on a frosted white background - simply switch on to bring the designs to life. Each bauble is finished with a silver top and white organza loop for hanging.",
-      "like": false
+      "like": true
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
       "notes": "Fun and wonderfully quirky, our set of twenty-five petite owl baubles will bring a smile to your face. Each set includes ten in cream, ten in copper and five in deep chocolate brown, and every one has a sweet, gold glittered face and beady embossed black eyes. Each bauble has a gold top and hanging loop.",
-      "like": false
+      "like": true
     },
     {
       "id": 5,
@@ -75,7 +75,7 @@
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029888-detail1.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029888-detail2.png",
       "notes": "Dress your windowsills, create tiny festive scenes and even give your garden a little sprinkling with our Biodegradable Snow. Made from corn starch, this snow is environmentally friendly - simple use as you wish, then add to your food waste or compost bin.",
-      "like": false
+      "like": true
     },
     {
       "id": 8,
@@ -252,5 +252,21 @@
       "like": false
     }
   ],
-  "comments": []
-}
+
+  "comments": [
+    {
+      "user": "Kanykei",
+      "comment": " i like it is amazing",
+      "id": 1
+    },
+    {
+      "user": "aziza",
+      "comment": "yes it is good!\n",
+      "id": 2
+    },
+    {
+      "user": "jyldyz",
+      "comment": "i dont like it! doesnt work properly",
+      "id": 3
+    }
+  ]

@@ -133,79 +133,9 @@ const OrderForm = () => {
             </form>
           </Grid>
         </Grid>
-      ) : (
-        <>
-          <Grid container className="order-container" spacing={6}>
-            <Grid item md={4} sm={9}>
-              <p className="order-title">You havent ordered yet</p>
-            </Grid>
-            <Grid item md={5} sm={9}>
-              <p className="order-title">SHIPPING ADDRESS</p>
-              <form>
-                <label>
-                  First Name
-                  <input
-                    className="order-inp"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                  />
-                </label>
-                <label>
-                  Last Name
-                  <input
-                    className="order-inp"
-                    name="lastName"
-                    value={form.lastName}
-                    onChange={handleChange}
-                  />
-                </label>
-                <label>
-                  Address
-                  <input
-                    className="order-inp"
-                    name="address"
-                    value={form.address}
-                    onChange={handleChange}
-                  />
-                </label>
-                <label>
-                  City
-                  <input
-                    className="order-inp"
-                    name="city"
-                    value={form.city}
-                    onChange={handleChange}
-                  />
-                </label>
-                <label>
-                  Phone Number
-                  <input
-                    className="order-inp"
-                    name="number"
-                    value={form.number}
-                    onChange={handleChange}
-                  />
-                </label>
-                <MyLink to="/payment-page">
-                  <Button
-                    style={{
-                      backgroundColor: blueGrey[500],
-                      width: "200px",
-                      height: "45px",
-                    }}
-                    variant="contained"
-                    onClick={handleSubmit}
-                  >
-                    Next
-                  </Button>
-                </MyLink>
-              </form>
-            </Grid>
-          </Grid>
-        </>
-      )}
-    </>
+
+      ) : null}
+
   );
 };
 

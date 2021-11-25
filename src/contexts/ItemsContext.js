@@ -303,6 +303,24 @@ const ItemsContext = ({ children }) => {
     });
   };
 
+
+
+
+  const changeProductCount = (newCount, id) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    cart.products = cart.decors.map((item) => {
+      if (item.product.id === id) {
+        item.count = newCount;
+        item.subPrice = calcSubPrice(item);
+      }
+      return item;
+    });
+    cart.totalPrice = calcTotalPrice(cart.decors);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    getCart();
+  };
+
+
   const values = {
     products: state.products,
     loading: state.loading,
@@ -325,8 +343,14 @@ const ItemsContext = ({ children }) => {
     addToCart,
     getCart,
     deleteProductFromCart,
+
+    searchResults: state.searchResults,
+    fetchSearchProducts,
+    changeProductCount,
+
     addAndDeleteInFavs,
     getItem,
+
   };
 
   return (

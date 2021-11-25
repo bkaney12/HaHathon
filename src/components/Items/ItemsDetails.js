@@ -55,13 +55,16 @@ const useStyles = makeStyles((theme) => ({
   notes: {
     fontSize: "20px",
     margin: "10px 100px 10px 0",
+
     [theme.breakpoints.down('md')]: {
       fontSize: '18px'
     }
+
   },
   actions: {
     justifyContent: "space-around",
   },
+
   carousel: {
     width: '350px',
     margin: '20px auto',
@@ -69,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
       width: '260px'
     }
   },
+
 }));
 
 const ItemsDetails = () => {
@@ -122,7 +126,12 @@ const ItemsDetails = () => {
   };
 
   const handleClickAdd = async () => {
+    if (!form.user || !form.comment) {
+      alert("I need your feedback");
+      return;
+    }
     await addComment(form);
+    setForm("");
     setOpen(false);
   };
 
