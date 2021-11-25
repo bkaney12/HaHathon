@@ -1,7 +1,6 @@
 import { Paper, Grid, Typography, Button } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useProducts } from "../../contexts/ItemsContext";
-
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -15,6 +14,7 @@ import MyLink from "../../shared/MyLink";
 
 const useStyles = makeStyles((theme) => ({
   table: {
+
     [theme.breakpoints.down("md")]: {
       width: "300px",
     },
@@ -52,13 +52,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 const Cart = () => {
-  const { cart, getCart, cartData, deleteProductFromCart, changeProductCount } =
-    useProducts();
+  const { cart, getCart, cartData, deleteProductFromCart,changeProductCount }  = useProducts();
+
+
   useEffect(() => {
     getCart();
   }, [cartData]);
-  // console.log(cart);
   const classes = useStyles();
   const handleCountChange = ({ value }, id) => {
     changeProductCount(value, id);
@@ -70,11 +72,13 @@ const Cart = () => {
         <>
           {
             <Grid container>
+
               <Grid item md={8} sm={12} xs={12}>
                 <Paper elevation={4} className={classes.paper}>
                   <h1 className={classes.title}>
                     You have {cartData} item(s) in your cart :
                   </h1>
+
                   <TableContainer>
                     <Table className={classes.table} aria-label="caption table">
                       <TableHead>
@@ -83,7 +87,6 @@ const Cart = () => {
                             <h4>Title</h4>
                           </TableCell>
                           <TableCell align="center">Image</TableCell>
-
                           <TableCell align="center">Price</TableCell>
                           <TableCell align="center">Count</TableCell>
                           <TableCell align="center">SubTotal</TableCell>
@@ -95,9 +98,7 @@ const Cart = () => {
                           <TableRow>
                             <TableCell component="th" scope="">
                               {item.product.title}
-                              Chrismas tree
                             </TableCell>
-
                             <TableCell align="center">
                               <img
                                 src={item.product.image}
@@ -114,13 +115,14 @@ const Cart = () => {
                                 min="1"
                                 type="number"
                                 style={{ width: "25px" }}
+
                                 value={item.count}
                                 onChange={(e) =>
                                   handleCountChange(e.target, item.product.id)
                                 }
+
                               />
                             </TableCell>
-
                             <TableCell align="center">
                               {item.subPrice}
                             </TableCell>
@@ -142,7 +144,9 @@ const Cart = () => {
                 </Paper>
               </Grid>
               <Grid item md={4} sm={12}>
-                <Paper elevation={6} className={classes.paper1}>
+
+               <Paper elevation={6} className={classes.paper1}>
+
                   <Typography
                     variant="h5"
                     align="left"
@@ -150,7 +154,6 @@ const Cart = () => {
                   >
                     Total price: {cart.totalPrice}
                   </Typography>
-                  {/* ))} */}
                   <br />
                   <MyLink to="/order">
                     <Button
@@ -168,7 +171,7 @@ const Cart = () => {
           }
         </>
       ) : (
-        <h1>Ваша корзина пуста</h1>
+        <h1>Cart is empty</h1>
       )}
     </>
   );

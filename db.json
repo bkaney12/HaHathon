@@ -14,7 +14,7 @@
     {
       "id": 2,
       "title": "Three Shatterproof Gingerbread Friends",
-      "price": 1000,
+      "price": "2000",
       "category": "tree decorations",
       "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029840.png",
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029840-detail2.png",
@@ -28,8 +28,8 @@
       "price": 4000,
       "category": "tree decorations",
       "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
-      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
-      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw17-x-12lightbaub.png",
+      "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030273-on.png",
+      "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1030273-detail3.png",
       "notes": "A fabulous way to decorate your tree, our set of twelve light up baubles feature four different designs on a frosted white background - simply switch on to bring the designs to life. Each bauble is finished with a silver top and white organza loop for hanging.",
       "like": true
     },
@@ -37,7 +37,7 @@
       "id": 4,
       "title": "Twenty Five Miniature Owl Baubles",
       "price": "3000 ",
-      "category": "tree decorations edited1",
+      "category": "tree decorations ",
       "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw18-x-25owl.png",
@@ -58,7 +58,7 @@
     {
       "id": 6,
       "title": "Super Bright Super Long String Lights",
-      "price": 5000,
+      "price": "4800",
       "category": "lighting",
       "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905.png",
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029905-detail1.png",
@@ -118,8 +118,7 @@
       "image": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-1029662.png",
       "image2": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-detail2.png",
       "image3": "https://www.coxandcox.co.uk/media/catalog/product/cache/eceb26e77de98330381661bbe755c5ac/a/w/aw21-1029661-detail2.png",
-      "notes": "Standing at a compact two and a half feet tall with a full, bushy appearance and lovely snowy finish, our sweet little Frosted Pine Potted Tree is perfect for placing in a hallway, child’s bedroom or as the main event if you’re short on space or planning a small Christmas. Extremely realistic yet wonderfully whimsical, dress our tree with baubles, garlands, lights, and even a decorative outer pot to complete the look.",
-      "like": false
+      "notes": "Standing at a compact two and a half feet tall with a full, bushy appearance and lovely snowy finish, our sweet little Frosted Pine Potted Tree is perfect for placing in a hallway, child’s bedroom or as the main event if you’re short on space or planning a small Christmas. Extremely realistic yet wonderfully whimsical, dress our tree with baubles, garlands, lights, and even a decorative outer pot to complete the look."
     },
     {
       "title": "Light Up Crown Tree Topper",
@@ -253,6 +252,7 @@
       "like": false
     }
   ],
+
   "comments": [
     {
       "user": "Kanykei",
@@ -270,4 +270,3 @@
       "id": 3
     }
   ]
-}

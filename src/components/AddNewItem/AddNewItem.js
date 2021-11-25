@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useProducts } from "../../contexts/ItemsContext";
 import "./AddNewItem.css";
+import { blueGrey } from '@material-ui/core/colors';
 
 const AddNewItem = () => {
   const { addItem } = useProducts();
@@ -59,13 +60,6 @@ const AddNewItem = () => {
                   onChange={handleChange}
                   value={form.title}
                 />
-                {/* <textarea
-                  type="text"
-                  placeholder="Notes"
-                  name="notes"
-                  onChange={handleChange}
-                  value={form.description}
-                /> */}
                 <textarea
                   type="text"
                   placeholder="Notes"
@@ -110,7 +104,7 @@ const AddNewItem = () => {
                 />
                 <Button
                   variant="contained"
-                  color="primary"
+                  style={{backgroundColor: blueGrey[500]}}
                   className="btn-add"
                   onClick={AddNewItem}
                 >

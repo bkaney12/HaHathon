@@ -2,6 +2,7 @@ import { Grid, Paper, Button } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useProducts } from "../../contexts/ItemsContext";
+import { blueGrey } from '@material-ui/core/colors';
 
 const EditItem = () => {
   const { productDetails, fetchOneProduct, editItem } = useProducts();
@@ -63,13 +64,6 @@ const EditItem = () => {
                 onChange={handleChange}
                 value={form.title}
               />
-              {/* <textarea
-                type="text"
-                placeholder="Description"
-                name="description"
-                onChange={handleChange}
-                value={form.description}
-              /> */}
               <textarea
                 type="text"
                 placeholder="Notes"
@@ -114,7 +108,7 @@ const EditItem = () => {
               />
               <Button
                 variant="contained"
-                color="secondary"
+                style={{backgroundColor: blueGrey[500]}}
                 className="btn-add"
                 onClick={handleEdit}
               >

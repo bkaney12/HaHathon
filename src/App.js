@@ -1,16 +1,16 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./components/routes";
-import CommentsContext from "./contexts/CommentsContext";
+import AuthContext from "./contexts/AuthContext";
 import ItemsContext from "./contexts/ItemsContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <CommentsContext>
+      <AuthContext>
         <ItemsContext>
           <AppRoutes />
         </ItemsContext>
-      </CommentsContext>
+      </AuthContext>
     </BrowserRouter>
   );
 }

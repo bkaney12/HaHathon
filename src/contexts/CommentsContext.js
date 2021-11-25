@@ -17,6 +17,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
 const CommentsContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 

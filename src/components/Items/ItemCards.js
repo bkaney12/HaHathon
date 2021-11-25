@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+
 import {
   Container,
   Card,
@@ -19,23 +20,41 @@ import { TrainOutlined } from "@material-ui/icons";
 import { useProducts } from "../../contexts/ItemsContext";
 import { Navigate, useNavigate, useParams } from "react-router";
 
-const useStyles = makeStyles({
-  media: {
-    height: 140,
-    paddingTop: "56.25%",
-  },
-  card: {
-    height: "100%",
-  },
-  cardGrid: {
-    height: "100%",
-  },
-  cardContent: {
-    minHeight: "140px",
-  },
-});
 
-const ItemCards = ({ product }) => {
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+
+import { checkItemInFavs } from '../../utils/check-cart';
+
+const useStyles = makeStyles((theme) => ({
+   media: {
+      height: 140,
+      paddingTop: "56.25%",
+   },
+   card: {
+      height: '100%'
+   },
+   cardGrid: {
+      height: '100%'
+   },
+   cardContent: {
+      minHeight: '140px',
+      [theme.breakpoints.down('md')]: {
+         minHeight: '80px',
+      }
+   },
+   actionArea: {
+      justifyContent: 'space-between'
+   },
+   cardTitle: {
+      fontSize: '26px',
+      [theme.breakpoints.down('md')]: {
+         fontSize: '18px'
+      }
+   }
+}))
+
+
+const ItemCards = ({ product ,favs}) => {
   const classes = useStyles();
   const navigate = useNavigate();
 
@@ -52,6 +71,18 @@ const ItemCards = ({ product }) => {
       setLike(!like);
     }
   };
+     const classes = useStyles();
+
+   const { addAndDeleteInFavs } = useProducts();
+
+   const isProductInFavs = () => {
+      if (favs) {
+         return checkItemInFavs(favs.products, product.id)
+      }
+      return false;
+   }
+
+   const inFavs = isProductInFavs();
 
   return (
     <Container className={classes.cardGrid}>
@@ -64,7 +95,7 @@ const ItemCards = ({ product }) => {
               title={product.title}
             />
             <CardContent className={classes.cardContent}>
-              <Typography variant="h5" gutterBottom>
+              <Typography variant="h5" gutterBottom className={classes.cardTitle}>
                 {product.title}
               </Typography>
               <Typography>Price: {product.price}</Typography>
@@ -83,6 +114,9 @@ const ItemCards = ({ product }) => {
               View
             </Button>
           </MyLink>
+            <IconButton onClick={() => addAndDeleteInFavs(product)} color={inFavs ? "secondary" : "default"} >
+                  <BookmarkBorderIcon />
+               </IconButton>
           <IconButton>
             <FavoriteIcon
               onClick={() => handleLike()}
@@ -96,5 +130,7 @@ const ItemCards = ({ product }) => {
     </Container>
   );
 };
+
+
 
 export default ItemCards;

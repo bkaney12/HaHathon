@@ -20,7 +20,7 @@ const Comments = () => {
   };
   return (
     <>
-      {comments.length > 0
+      {comments && comments.length > 0
         ? comments.map((comment) => (
             <Grid container>
               <Grid item md={6}>

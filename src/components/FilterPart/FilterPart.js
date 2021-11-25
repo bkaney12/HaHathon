@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import { useProducts } from "../../contexts/ItemsContext";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
-
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import NativeSelect from "@material-ui/core/NativeSelect";
@@ -93,6 +90,12 @@ const FilterPart = () => {
   const [category, setCategory] = useState("");
   const handleChangeCategory = (event) => {
     setCategory(event.target.value);
+  };
+
+
+  const handleFilterCategory = (e) => {
+    fetchByParams("category", e.target.value);
+    console.log(e.target);
   };
 
   return (
