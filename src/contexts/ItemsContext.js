@@ -10,8 +10,8 @@ import {
   GET_CART,
   ADD_TO_CART,
   SET_SEARCH_RESULTS,
-  ADD_AND_DELETE_IN_FAVS,
-  GET_ITEM,
+  ADD_AND_DELETE_IN_FAV,
+  GET_FAV,
 } from "../utils/constants";
 import {
   productsError,
@@ -26,7 +26,7 @@ import {
 } from "./actions/itemDetailsActions";
 import { useNavigate, useLocation } from "react-router";
 import { calcSubPrice, calcTotalPrice } from "../utils/calculations";
-import { checkItemInCart, checkItemInFavs } from "../utils/check-cart";
+import { checkItemInCart, checkItemInFav } from "../utils/check-cart";
 
 const productsContext = createContext();
 
@@ -46,10 +46,10 @@ const initialState = {
     ? JSON.parse(localStorage.getItem("cart")).decors.length
     : 0,
   cart: {},
-  favsData: JSON.parse(localStorage.getItem("favs"))
-    ? JSON.parse(localStorage.getItem("favs")).products.length
+  favData: JSON.parse(localStorage.getItem("fav"))
+    ? JSON.parse(localStorage.getItem("fav")).products.length
     : 0,
-  favs: {},
+  fav: {},
 };
 
 const reducer = (state, action) => {
@@ -116,17 +116,17 @@ const reducer = (state, action) => {
       };
     }
 
-    case ADD_AND_DELETE_IN_FAVS: {
+    case ADD_AND_DELETE_IN_FAV: {
       return {
         ...state,
-        favsData: action.payload,
+        favData: action.payload,
       };
     }
 
-    case GET_ITEM: {
+    case GET_FAV: {
       return {
         ...state,
-        favs: action.payload,
+        fav: action.payload,
       };
     }
 
@@ -166,15 +166,6 @@ const ItemsContext = ({ children }) => {
       dispatch(productError(error.message));
     }
   };
-
-  const deleteProduct = async (id) => {
-    try {
-      await $api.delete(`${id}`);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
   const addItem = async (newItem) => {
     try {
       await $api.post("/", newItem);
@@ -190,7 +181,13 @@ const ItemsContext = ({ children }) => {
       console.log(err);
     }
   };
-
+  const deleteProduct = async (id) => {
+    try {
+      await $api.delete(`${id}`);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   const fetchByParams = async (query, value) => {
     const search = new URLSearchParams(location.search);
     if (value === "all") {
@@ -220,7 +217,7 @@ const ItemsContext = ({ children }) => {
 
   const addToCart = (product) => {
     let cart = JSON.parse(localStorage.getItem("cart"));
-    if (!cart.length) {
+    if (!cart) {
       cart = {
         decors: [],
         totalPrice: 0,
@@ -269,10 +266,10 @@ const ItemsContext = ({ children }) => {
     });
   };
 
-  const addAndDeleteInFavs = (product) => {
-    let favs = JSON.parse(localStorage.getItem("favs"));
-    if (!favs) {
-      favs = {
+  const addAndDeleteInFav = (product) => {
+    let fav = JSON.parse(localStorage.getItem("fav"));
+    if (!fav) {
+      fav = {
         products: [],
       };
     }
@@ -280,31 +277,32 @@ const ItemsContext = ({ children }) => {
       count: 1,
       product: product,
     };
-    const isProductInFavs = checkItemInFavs(favs.products, product.id);
-    if (isProductInFavs) {
-      favs.products = favs.products.filter((item) => item.product.id !== product.id);
+    console.log(newProduct);
+    const isItemInFav = checkItemInFav(fav.products, product.id);
+    if (isItemInFav) {
+      fav.products = fav.products.filter(
+        (item) => item.product.id !== product.id
+      );
     } else {
-      favs.products.push(newProduct);
+      fav.products.push(newProduct);
     }
 
-    localStorage.setItem("favs", JSON.stringify(favs));
-
+    localStorage.setItem("fav", JSON.stringify(fav));
+    console.log(fav);
     dispatch({
-      type: ADD_AND_DELETE_IN_FAVS,
-      payload: favs.products.length,
+      type: ADD_AND_DELETE_IN_FAV,
+      payload: fav.products.length,
     });
   };
 
-  const getItem = () => {
-    let favsFromLS = JSON.parse(localStorage.getItem("favs"));
+  const getFav = () => {
+    let favFromLS = JSON.parse(localStorage.getItem("fav"));
     dispatch({
-      type: GET_ITEM,
-      payload: favsFromLS,
+      type: GET_FAV,
+      payload: favFromLS,
     });
+    // console.log(favFromLS);
   };
-
-
-
 
   const changeProductCount = (newCount, id) => {
     const cart = JSON.parse(localStorage.getItem("cart"));
@@ -320,7 +318,6 @@ const ItemsContext = ({ children }) => {
     getCart();
   };
 
-
   const values = {
     products: state.products,
     loading: state.loading,
@@ -331,8 +328,8 @@ const ItemsContext = ({ children }) => {
     searchResults: state.searchResults,
     cart: state.cart,
     cartData: state.cartData,
-    favsData: state.favsData,
-    favs: state.favs,
+    favData: state.favData,
+    fav: state.fav,
     fetchProducts,
     fetchOneProduct,
     fetchSearchProducts,
@@ -343,14 +340,9 @@ const ItemsContext = ({ children }) => {
     addToCart,
     getCart,
     deleteProductFromCart,
-
-    searchResults: state.searchResults,
-    fetchSearchProducts,
     changeProductCount,
-
-    addAndDeleteInFavs,
-    getItem,
-
+    addAndDeleteInFav,
+    getFav,
   };
 
   return (

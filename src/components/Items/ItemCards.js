@@ -20,46 +20,53 @@ import { TrainOutlined } from "@material-ui/icons";
 import { useProducts } from "../../contexts/ItemsContext";
 import { Navigate, useNavigate, useParams } from "react-router";
 
+import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-
-import { checkItemInFavs } from '../../utils/check-cart';
+import { checkItemInFav } from "../../utils/check-cart";
 
 const useStyles = makeStyles((theme) => ({
-   media: {
-      height: 140,
-      paddingTop: "56.25%",
-   },
-   card: {
-      height: '100%'
-   },
-   cardGrid: {
-      height: '100%'
-   },
-   cardContent: {
-      minHeight: '140px',
-      [theme.breakpoints.down('md')]: {
-         minHeight: '80px',
-      }
-   },
-   actionArea: {
-      justifyContent: 'space-between'
-   },
-   cardTitle: {
-      fontSize: '26px',
-      [theme.breakpoints.down('md')]: {
-         fontSize: '18px'
-      }
-   }
-}))
+  media: {
+    height: 140,
+    paddingTop: "56.25%",
+  },
+  card: {
+    height: "100%",
+  },
+  cardGrid: {
+    height: "100%",
+  },
+  cardContent: {
+    minHeight: "140px",
+    [theme.breakpoints.down("md")]: {
+      minHeight: "80px",
+    },
+  },
+  actionArea: {
+    justifyContent: "space-between",
+  },
+  cardTitle: {
+    fontSize: "26px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "18px",
+    },
+  },
+}));
 
-
-const ItemCards = ({ product ,favs}) => {
+const ItemCards = ({ product, fav }) => {
   const classes = useStyles();
   const navigate = useNavigate();
 
-  const { changeLike, editItem, fetchProducts } = useProducts();
+  const { editItem, addAndDeleteInFav } = useProducts();
   const [like, setLike] = useState(product.like);
+
+  const isItemInFav = () => {
+    if (fav) {
+      return checkItemInFav(fav.products, product.id);
+    }
+    return false;
+  };
+
+  const inFav = isItemInFav();
 
   const handleLike = async () => {
     const newProduct = {
@@ -71,18 +78,6 @@ const ItemCards = ({ product ,favs}) => {
       setLike(!like);
     }
   };
-     const classes = useStyles();
-
-   const { addAndDeleteInFavs } = useProducts();
-
-   const isProductInFavs = () => {
-      if (favs) {
-         return checkItemInFavs(favs.products, product.id)
-      }
-      return false;
-   }
-
-   const inFavs = isProductInFavs();
 
   return (
     <Container className={classes.cardGrid}>
@@ -95,7 +90,11 @@ const ItemCards = ({ product ,favs}) => {
               title={product.title}
             />
             <CardContent className={classes.cardContent}>
-              <Typography variant="h5" gutterBottom className={classes.cardTitle}>
+              <Typography
+                variant="h5"
+                gutterBottom
+                className={classes.cardTitle}
+              >
                 {product.title}
               </Typography>
               <Typography>Price: {product.price}</Typography>
@@ -114,15 +113,16 @@ const ItemCards = ({ product ,favs}) => {
               View
             </Button>
           </MyLink>
-            <IconButton onClick={() => addAndDeleteInFavs(product)} color={inFavs ? "secondary" : "default"} >
-                  <BookmarkBorderIcon />
-               </IconButton>
+          <IconButton
+            onClick={() => addAndDeleteInFav(product)}
+            style={{ color: inFav ? "violet" : "grey" }}
+          >
+            <BookmarkBorderIcon />
+          </IconButton>
           <IconButton>
             <FavoriteIcon
               onClick={() => handleLike()}
-           
               style={{ color: !like ? "black" : "red" }}
-           
             />
           </IconButton>
         </CardActions>
@@ -130,7 +130,5 @@ const ItemCards = ({ product ,favs}) => {
     </Container>
   );
 };
-
-
 
 export default ItemCards;

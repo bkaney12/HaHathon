@@ -11,16 +11,24 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     paddingTop: "30px",
     backgroundColor: "brown",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   main: {
     backgroundColor: "brown",
   },
-});
+  text: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "12px",
+    },
+  },
+}));
 
 const Footer = () => {
   const classes = useStyles();
@@ -63,6 +71,7 @@ const Footer = () => {
         </BottomNavigation>
         <br />
         <Typography
+          className={classes.text}
           align="center"
           color="textSecondary"
           component="p"

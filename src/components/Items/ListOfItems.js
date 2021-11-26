@@ -1,15 +1,10 @@
-import {
-  Container,
-  Grid,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import { Container, Grid, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import ItemCards from "./ItemCards";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    fontSize: '36px',
+    fontSize: "36px",
     [theme.breakpoints.down("md")]: {
       fontSize: "22px",
     },
@@ -25,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
 
 const ListOfItems = ({ products }) => {
   const classes = useStyles();
+
+  const fav = JSON.parse(localStorage.getItem("fav")) ?? false;
 
   return (
     <>
@@ -54,7 +51,7 @@ const ListOfItems = ({ products }) => {
         <Grid container spacing={3}>
           {products.map((product) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-              <ItemCards product={product} />
+              <ItemCards product={product} fav={fav} />
             </Grid>
           ))}
         </Grid>

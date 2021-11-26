@@ -23,7 +23,7 @@ const Comments = () => {
       {comments && comments.length > 0
         ? comments.map((comment) => (
             <Grid container>
-              <Grid item md={6}>
+              <Grid item md={6} sm={10}>
                 <Card key={comment.id} className="card">
                   <CardContent>
                     <h4>{comment.user}</h4>

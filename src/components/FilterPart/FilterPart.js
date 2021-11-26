@@ -12,7 +12,7 @@ import Select from "@material-ui/core/Select";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import InputBase from "@material-ui/core/InputBase";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: 200,
     paddingLeft: "100px",
@@ -24,7 +24,14 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
   },
-});
+  filter: {
+    fontSize: "20px",
+    marginRight: "10px",
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
+}));
 
 function valuetext(value) {
   return `${value}°C`;
@@ -92,7 +99,6 @@ const FilterPart = () => {
     setCategory(event.target.value);
   };
 
-
   const handleFilterCategory = (e) => {
     fetchByParams("category", e.target.value);
     console.log(e.target);
@@ -101,14 +107,9 @@ const FilterPart = () => {
   return (
     <>
       <div className={classes.main}>
-        <FormControl className={classes.margin}>
+        <FormControl className={classes.margin} className={classes.filter}>
           {" "}
-          <label
-            for="demo-customized-select"
-            style={{ fontSize: "20px", marginRight: "10px" }}
-          >
-            FILTER BY:
-          </label>{" "}
+          <label for="demo-customized-select">FILTER BY:</label>{" "}
         </FormControl>
         <FormControl className={classes.margin}>
           <Select

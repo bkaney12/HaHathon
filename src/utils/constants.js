@@ -11,8 +11,8 @@ export const GET_CART = "GET_CART";
 
 export const ADD_TO_CART = "ADD_TO_CART";
 
-export const ADD_AND_DELETE_IN_FAVS = 'ADD_AND_DELETE_IN_FAVS';
+export const ADD_AND_DELETE_IN_FAV = "ADD_AND_DELETE_IN_FAV";
 
-export const GET_ITEM = 'GET_ITEM';
+export const GET_FAV = "GET_FAV";
 
-export const SET_USER = 'SET_USER';
+export const SET_USER = "SET_USER";

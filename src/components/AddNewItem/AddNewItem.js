@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useProducts } from "../../contexts/ItemsContext";
 import "./AddNewItem.css";
-import { blueGrey } from '@material-ui/core/colors';
+import { blueGrey } from "@material-ui/core/colors";
 
 const AddNewItem = () => {
   const { addItem } = useProducts();
@@ -17,7 +17,6 @@ const AddNewItem = () => {
     price: "",
     notes: "",
     category: "",
-    notes: "",
   });
   const handleChange = (e) => {
     const values = {
@@ -104,7 +103,7 @@ const AddNewItem = () => {
                 />
                 <Button
                   variant="contained"
-                  style={{backgroundColor: blueGrey[500]}}
+                  style={{ backgroundColor: blueGrey[500] }}
                   className="btn-add"
                   onClick={AddNewItem}
                 >

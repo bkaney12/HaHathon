@@ -1,6 +1,4 @@
 .card {
-  margin-left: 300px;
-  width: 800px;
   height: 150px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -9,4 +7,39 @@
 .content {
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 980px) {
+  .card {
+    margin-left: 5px;
+    width: 600px;
+    height: 130px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    margin-left: 10px;
+    width: 500px;
+    height: 130px;
+  }
+
+  .content {
+    margin: 0;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 530px) {
+  .card {
+    margin-left: 5px;
+    width: 320px;
+    height: 130px;
+  }
+}
+@media screen and (max-width: 348px) {
+  .card {
+    margin-left: 5px;
+    width: 230px;
+    height: 130px;
+  }
 }

@@ -27,7 +27,7 @@ import {
   Paper,
   TextField,
 } from "@material-ui/core";
-import PersonIcon from '@material-ui/icons/Person';
+import PersonIcon from "@material-ui/icons/Person";
 import MyLink from "../../shared/MyLink";
 import { useNavigate } from "react-router";
 import { useProducts } from "../../contexts/ItemsContext";
@@ -99,10 +99,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   featuresPost: {
-    minHeight: "180px",
+    minHeight: "100px",
     position: "relative",
     color: theme.palette.common.white,
-    // marginBottom: theme.spacing(1),
+
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -110,10 +110,6 @@ const useStyles = makeStyles((theme) => ({
   featuresPostContent: {
     position: "relative",
     padding: theme.spacing(3),
-    // [theme.breakpoints.down("sm")]: {
-    //   fontSize: "20px",
-    //   display: "none",
-    // },
   },
   overlay: {
     position: "absolute",
@@ -129,17 +125,22 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 999,
   },
   contentTitle: {
-      fontSize: '22px',
-    [theme.breakpoints.down('md')]: {
-      fontSize: '14px'
-    }
+    fontSize: "22px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "14px",
+    },
   },
   paragraph: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
-  }
+  },
+  btn: {
+    [theme.breakpoints.up("xs")]: {
+      height: "30px",
+    },
+  },
 }));
 
 export default function Header() {
@@ -156,9 +157,9 @@ export default function Header() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
-  const { fetchSearchProducts } = useProducts();
+  const { fetchSearchProducts, cartData } = useProducts();
   const navigate = useNavigate();
-  const { cartData } = useProducts();
+
   const { registerUser, user, logOut } = useAuth();
 
   const handleClickOpen = () => {
@@ -183,11 +184,11 @@ export default function Header() {
           <Toolbar className={classes.colorPrimary}>
             <Box mr={2} ml={2}>
               <IconButton
-                  aria-controls="fade-menu"
-                  aria-haspopup="true"
-                  onClick={handleClick}
-                >
-                  <MenuIcon />
+                aria-controls="fade-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
+                <MenuIcon />
               </IconButton>
               <Menu
                 id="fade-menu"
@@ -197,13 +198,11 @@ export default function Header() {
                 onClose={handleClose1}
                 TransitionComponent={Fade}
               >
-                {
-                  user ? (
-                    <MenuItem onClick={() => logOut()}>Log Out</MenuItem>
-                  ) : (
-                    <MenuItem onClick={() => registerUser()}>Sign up</MenuItem>
-                  )
-                }
+                {user ? (
+                  <MenuItem onClick={() => logOut()}>Log Out</MenuItem>
+                ) : (
+                  <MenuItem onClick={() => registerUser()}>Sign up</MenuItem>
+                )}
               </Menu>
             </Box>
             <MyLink to="/">
@@ -261,7 +260,6 @@ export default function Header() {
                 )}
               </div>
             </ClickAwayListener>
-
           </Toolbar>
         </AppBar>
       </div>
@@ -282,8 +280,18 @@ export default function Header() {
                     <h2>CHRISTMAS</h2>
                   </MyLink>
                 </div>
-                <Typography component="h5" color="inherit" paragraph className={classes.paragraph}>
-                  Transform every corner of your home this festive season with our collection of enchanting Christmas decorations. From stylish wicker tree skirts and whimsical felt friends, to Christmas window stickers, quaint ornaments and snow globes, here is a collection to truly deliver the Christmas magic this year.
+                <Typography
+                  component="h5"
+                  color="inherit"
+                  paragraph
+                  className={classes.paragraph}
+                >
+                  Transform every corner of your home this festive season with
+                  our collection of enchanting Christmas decorations. From
+                  stylish wicker tree skirts and whimsical felt friends, to
+                  Christmas window stickers, quaint ornaments and snow globes,
+                  here is a collection to truly deliver the Christmas magic this
+                  year.
                 </Typography>
 
                 <Button
